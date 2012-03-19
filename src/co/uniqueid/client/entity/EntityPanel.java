@@ -29,19 +29,19 @@ public class EntityPanel extends AbsolutePanel {
 		add(image_2, 357, 80);
 
 		HTML image_3 = new HTML(
-				"<a href='http://www.linkedin.com/"
+				"<a href='http://www.linkedin.com/in/"
 						+ ConvertJson.getStringValue(unoUserJson, "linkedinID")
 						+ "' target='_blank'><img src='images/LinkedinIcon.jpg' border=0 width='35px' height='35px'></a>");
 		add(image_3, 427, 197);
 
 		HTML image_4 = new HTML(
 				"<a href='"
-						+ ConvertJson.getStringValue(unoUserJson, "aboutMeURL")
+						+ ConvertJson.getStringValue(unoUserJson, "aboutmeURL")
 						+ "' target='_blank'><img src='images/aboutme.png' border=0 width='35px' height='35px'></a>");
 		add(image_4, 137, 197);
 
 		HTML image_5 = new HTML(
-				"<ahref='http://www.github.com/"
+				"<a href='http://www.github.com/"
 						+ ConvertJson
 								.getStringValue(unoUserJson, "githubLogin")
 						+ "' target='_blank'><img src='images/github-icon.png' border=0 width='48px' height='48px'></a>");

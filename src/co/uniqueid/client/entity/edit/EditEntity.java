@@ -28,15 +28,16 @@ public class EditEntity extends VerticalPanel {
 
 	public static TextBox twitterID = new TextBox();
 
-	public EditEntity(JSONObject unoUser, PopupEntity popup) {
+	public static TextBox linkedinID = new TextBox();
+
+	public static TextBox blogURL = new TextBox();
+
+	public static TextBox aboutmeURL = new TextBox();
+
+	public EditEntity(JSONObject unoUser) {
 
 		this.setSpacing(30);
-		
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
-		this.add(PopupEntity.getCloseButton(popup));
 
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
-		
 		String emailValue = ConvertJson.convertToString(unoUser.get("email"));
 		email.setValue(emailValue);
 		this.add(FormField.getFormField("Email", email));
@@ -51,16 +52,41 @@ public class EditEntity extends VerticalPanel {
 		lastName.setValue(lastNameValue);
 		this.add(FormField.getFormField("Last Name", lastName));
 
-		String facebookLoginValue = ConvertJson.convertToString(unoUser
-				.get("facebookLogin"));
-		facebookLogin.setValue(facebookLoginValue);
-		this.add(FormField.getFormField("Facebook ID", facebookLogin));
-
 		String imageURLValue = ConvertJson
 				.convertToString(unoUser.get("image"));
 		imageURL.setValue(imageURLValue);
 		this.add(FormField.getFormField("Image URL", imageURL));
 		imageURL.setWidth("400px");
+
+		String facebookLoginValue = ConvertJson.convertToString(unoUser
+				.get("facebookLogin"));
+		facebookLogin.setValue(facebookLoginValue);
+		this.add(FormField.getFormField("Facebook ID", facebookLogin));
+
+		String twitterIDValue = ConvertJson.convertToString(unoUser
+				.get("twitterID"));
+		twitterID.setValue(twitterIDValue);
+		this.add(FormField.getFormField("Twitter ID", twitterID));
+
+		String linkedinIDValue = ConvertJson.convertToString(unoUser
+				.get("linkedinID"));
+		linkedinID.setValue(linkedinIDValue);
+		this.add(FormField.getFormField("LinkedIn ID", linkedinID));
+
+		String aboutmeURLValue = ConvertJson.convertToString(unoUser
+				.get("aboutmeURL"));
+		aboutmeURL.setValue(aboutmeURLValue);
+		this.add(FormField.getFormField("About Me URL", aboutmeURL));
+
+		String blogURLValue = ConvertJson.convertToString(unoUser
+				.get("blogURL"));
+		blogURL.setValue(blogURLValue);
+		this.add(FormField.getFormField("Blog URL", blogURL));
+
+		String githubLoginValue = ConvertJson.convertToString(unoUser
+				.get("githubLogin"));
+		githubLogin.setValue(githubLoginValue);
+		this.add(FormField.getFormField("Github Login", githubLogin));
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
@@ -82,6 +108,12 @@ public class EditEntity extends VerticalPanel {
 				unoUSer.put("firstName", new JSONString(firstName.getValue()));
 				unoUSer.put("lastName", new JSONString(lastName.getValue()));
 				unoUSer.put("image", new JSONString(imageURL.getValue()));
+				unoUSer.put("twitterID", new JSONString(twitterID.getValue()));
+				unoUSer.put("linkedinID", new JSONString(linkedinID.getValue()));
+				unoUSer.put("aboutmeURL", new JSONString(aboutmeURL.getValue()));
+				unoUSer.put("blogURL", new JSONString(blogURL.getValue()));
+				unoUSer.put("githubLogin",
+						new JSONString(githubLogin.getValue()));
 
 				SaveUniqueID.save(unoUSer.toString());
 

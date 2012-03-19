@@ -1,6 +1,5 @@
 package co.uniqueid.client.Utilities;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -13,7 +12,7 @@ public class LoadingPanel extends VerticalPanel {
 
 		setSpacing(30);
 
-		add(new Image(GWT.getModuleBaseURL() + "startupstages/loading.gif"));
+		add(new Image("images/loading.gif"));
 	}
 
 }

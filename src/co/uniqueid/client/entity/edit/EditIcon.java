@@ -19,9 +19,7 @@ public class EditIcon extends Anchor {
 		this.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
-				PopupEntity popupEntity = new PopupEntity(unoUserJson);
-				popupEntity.center();
-				popupEntity.show();
+	
 			}
 		});
 	}
