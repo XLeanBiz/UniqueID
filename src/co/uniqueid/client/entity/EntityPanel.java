@@ -1,4 +1,4 @@
-package co.uniqueid.client;
+package co.uniqueid.client.entity;
 
 import co.uniqueid.authentication.client.utilities.ConvertJson;
 
@@ -6,13 +6,13 @@ import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.HTML;
 
-public class MyPanel extends AbsolutePanel {
+public class EntityPanel extends AbsolutePanel {
 
-	public MyPanel(final JSONObject unoUserJson) {
+	public EntityPanel(final JSONObject unoUserJson) {
 
-		this.setSize("700px", "700px");
+		this.setSize("500px", "500px");
 
-		MyPhoto image = new MyPhoto(unoUserJson);
+		EntityPhoto image = new EntityPhoto(unoUserJson);
 		add(image, 259, 183);
 
 		HTML image_1 = new HTML(

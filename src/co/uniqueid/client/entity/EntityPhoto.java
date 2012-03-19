@@ -1,6 +1,7 @@
-package co.uniqueid.client;
+package co.uniqueid.client.entity;
 
 import co.uniqueid.authentication.client.utilities.ConvertJson;
+import co.uniqueid.client.entity.edit.PopupEntity;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -10,9 +11,9 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class MyPhoto extends VerticalPanel {
+public class EntityPhoto extends VerticalPanel {
 
-	public MyPhoto(final JSONObject unoUserJson) {
+	public EntityPhoto(final JSONObject unoUserJson) {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
@@ -21,6 +22,8 @@ public class MyPhoto extends VerticalPanel {
 			@Override
 			public void onClick(ClickEvent event) {
 
+				PopupEntity edit = new PopupEntity(unoUserJson);
+				edit.show();
 			}
 		};
 

@@ -1,5 +1,8 @@
 package co.uniqueid.client;
 
+import co.uniqueid.client.Utilities.LoadingPanel;
+import co.uniqueid.client.entity.GetUniqueID;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -24,6 +27,8 @@ public class GWTEntryPoint implements EntryPoint {
 			GetUniqueID.getFromFacebookID(search);
 		}
 
+		vpMain.clear();
+		vpMain.add(new LoadingPanel());
 		RootPanel.get().add(vpMain);
 	}
 }

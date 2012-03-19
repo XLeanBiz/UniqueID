@@ -1,9 +1,10 @@
-package co.uniqueid.client;
+package co.uniqueid.client.entity;
 
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.uniqueid.UniqueIDService;
 import co.uniqueid.authentication.client.uniqueid.UniqueIDServiceAsync;
 import co.uniqueid.authentication.client.utilities.ConvertJson;
+import co.uniqueid.client.GWTEntryPoint;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
@@ -67,9 +68,7 @@ public class GetUniqueID {
 						UniqueIDGlobalVariables.uniqueID = userJsonObject;
 
 						GWTEntryPoint.vpMain.clear();
-						GWTEntryPoint.vpMain.add(new MyPanel(userJsonObject));
-						
-						RootPanel.get().add(new MyPanel(userJsonObject));
+						GWTEntryPoint.vpMain.add(new EntityPanel(userJsonObject));
 					}
 				});
 
