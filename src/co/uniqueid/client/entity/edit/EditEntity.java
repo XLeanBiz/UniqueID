@@ -37,7 +37,12 @@ public class EditEntity extends VerticalPanel {
 	public EditEntity(JSONObject unoUser) {
 
 		this.setSpacing(30);
+		
+		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+		this.add(new CloseButton(unoUser)); 
 
+		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
+		
 		String emailValue = ConvertJson.convertToString(unoUser.get("email"));
 		email.setValue(emailValue);
 		this.add(FormField.getFormField("Email", email));
@@ -115,7 +120,7 @@ public class EditEntity extends VerticalPanel {
 				unoUSer.put("githubLogin",
 						new JSONString(githubLogin.getValue()));
 
-				SaveUniqueID.save(unoUSer.toString());
+				SaveUniqueID.save(unoUSer);
 
 			}
 		});
