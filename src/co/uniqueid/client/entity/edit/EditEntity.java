@@ -3,12 +3,9 @@ package co.uniqueid.client.entity.edit;
 import co.uniqueid.authentication.client.utilities.ConvertJson;
 import co.uniqueid.client.Utilities.FormField;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONString;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -16,9 +13,7 @@ public class EditEntity extends VerticalPanel {
 
 	public static TextBox facebookLogin = new TextBox();
 
-	public static TextBox firstName = new TextBox();
-
-	public static TextBox lastName = new TextBox();
+	public static TextBox name = new TextBox();
 
 	public static TextBox email = new TextBox();
 
@@ -36,26 +31,23 @@ public class EditEntity extends VerticalPanel {
 
 	public EditEntity(JSONObject unoUser) {
 
-		this.setSpacing(30);
-		
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
-		this.add(new CloseButton(unoUser)); 
+		this.setSpacing(20);
+
+		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
+		this.add(new CloseButton(unoUser));
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
-		
+
+		this.add(new Label("Please, add the information you want to be public:"));
+
+		String firstNameValue = ConvertJson.convertToString(unoUser
+				.get("entityName"));
+		name.setValue(firstNameValue);
+		this.add(FormField.getFormField("<font color=red>*</font> Name", name));
+
 		String emailValue = ConvertJson.convertToString(unoUser.get("email"));
 		email.setValue(emailValue);
 		this.add(FormField.getFormField("Email", email));
-
-		String firstNameValue = ConvertJson.convertToString(unoUser
-				.get("firstName"));
-		firstName.setValue(firstNameValue);
-		this.add(FormField.getFormField("First Name", firstName));
-
-		String lastNameValue = ConvertJson.convertToString(unoUser
-				.get("lastName"));
-		lastName.setValue(lastNameValue);
-		this.add(FormField.getFormField("Last Name", lastName));
 
 		String imageURLValue = ConvertJson
 				.convertToString(unoUser.get("image"));
@@ -95,37 +87,7 @@ public class EditEntity extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		this.add(buttonSaveUnoUser(unoUser));
-	}
-
-	public Button buttonSaveUnoUser(final JSONObject unoUSer) {
-
-		Button save = new Button("Save");
-
-		save.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-
-				unoUSer.put("email", new JSONString(email.getValue()));
-				unoUSer.put("facebookLogin",
-						new JSONString(facebookLogin.getValue()));
-				unoUSer.put("firstName", new JSONString(firstName.getValue()));
-				unoUSer.put("lastName", new JSONString(lastName.getValue()));
-				unoUSer.put("image", new JSONString(imageURL.getValue()));
-				unoUSer.put("twitterID", new JSONString(twitterID.getValue()));
-				unoUSer.put("linkedinID", new JSONString(linkedinID.getValue()));
-				unoUSer.put("aboutmeURL", new JSONString(aboutmeURL.getValue()));
-				unoUSer.put("blogURL", new JSONString(blogURL.getValue()));
-				unoUSer.put("githubLogin",
-						new JSONString(githubLogin.getValue()));
-
-				SaveUniqueID.save(unoUSer);
-
-			}
-		});
-
-		return save;
+		this.add(new ButtonSave(unoUser));
 	}
 
 }

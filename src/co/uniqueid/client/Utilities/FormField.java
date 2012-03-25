@@ -1,5 +1,6 @@
 package co.uniqueid.client.Utilities;
 
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -22,7 +23,7 @@ public class FormField {
 		hp.setSpacing(5);
 		hp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 
-		Label title = new Label(label + ": ");
+		HTML title = new HTML(label + ": ");
 		title.setWidth(labelSize);
 		title.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 		hp.add(title);

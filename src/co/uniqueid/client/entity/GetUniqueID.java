@@ -1,6 +1,5 @@
 package co.uniqueid.client.entity;
 
-import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.uniqueid.UniqueIDService;
 import co.uniqueid.authentication.client.uniqueid.UniqueIDServiceAsync;
 import co.uniqueid.authentication.client.utilities.ConvertJson;
@@ -11,7 +10,6 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.RootPanel;
 
 public class GetUniqueID {
 
@@ -41,17 +39,22 @@ public class GetUniqueID {
 				JSONObject obj = (JSONObject) JSONParser
 						.parseStrict(jsonResults);
 
-				UniqueIDGlobalVariables.uniqueID = obj;
+				if (obj != null) {
+
+					GWTEntryPoint.vpMain.clear();
+					GWTEntryPoint.vpMain.add(new EntityPanel(obj));
+				}
 			}
 		});
 	}
 
-	public static void getFromFacebookID(final String facebookID) {
+	public static void getFromField(final String fieldName,
+			final String fieldValue) {
 
 		final UniqueIDServiceAsync unoIDService = GWT
 				.create(UniqueIDService.class);
 
-		unoIDService.getUniqueIDByFacebookID(facebookID,
+		unoIDService.getUniqueIDByField(fieldName, fieldValue,
 				new AsyncCallback<String>() {
 
 					public void onFailure(final Throwable caught) {
@@ -60,17 +63,31 @@ public class GetUniqueID {
 
 					public void onSuccess(final String jsonResults) {
 
-						JSONArray obj = (JSONArray) JSONParser
-								.parseStrict(jsonResults);
+						if (jsonResults != null) {
 
-						JSONObject userJsonObject = (JSONObject) obj.get(0);
+							JSONArray obj = (JSONArray) JSONParser
+									.parseStrict(jsonResults);
 
-						UniqueIDGlobalVariables.uniqueID = userJsonObject;
+							JSONObject userJsonObject = (JSONObject) obj.get(0);
 
-						GWTEntryPoint.vpMain.clear();
-						GWTEntryPoint.vpMain.add(new EntityPanel(userJsonObject));
+							if (userJsonObject != null) {
+
+								GWTEntryPoint.vpMain.clear();
+								GWTEntryPoint.vpMain.add(new EntityPanel(
+										userJsonObject));
+
+							} else if (!"entityName".equals(fieldName)) {
+
+								GetUniqueID.getFromField("entityName",
+										fieldValue);
+							} else {
+
+								GetUniqueID.getFromID(fieldValue);
+							}
+						}
 					}
 				});
 
 	}
+
 }

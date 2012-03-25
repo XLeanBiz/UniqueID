@@ -23,7 +23,7 @@ public class EntityPanel extends AbsolutePanel {
 					+ facebook
 					+ "' target='_blank'><img src='images/facebookIcon.jpg' border=0 width='35px' height='35px'></a>");
 		} else {
-			image_1.setHTML("<img src='images/facebookIconCrossed.png' border=0 width='35px' height='35px'>");
+			image_1.setHTML("<img src='images/facebookIconCrossed.jpg' border=0 width='35px' height='35px'>");
 		}
 		add(image_1, 218, 80);
 
@@ -62,7 +62,7 @@ public class EntityPanel extends AbsolutePanel {
 		}
 		add(image_4, 137, 197);
 
-		String githubLogin = ConvertJson.getStringValue(unoUserJson,
+	/*	String githubLogin = ConvertJson.getStringValue(unoUserJson,
 				"githubLogin");
 		HTML image_5 = new HTML();
 		if (githubLogin != null) {
@@ -72,6 +72,18 @@ public class EntityPanel extends AbsolutePanel {
 		} else {
 			image_5.setHTML("<img src='images/github-iconCrossed.png' border=0 width='48px' height='48px'>");
 		}
+		add(image_5, 172, 332);*/
+		
+		String email = ConvertJson.getStringValue(unoUserJson,
+				"email");
+		HTML image_5 = new HTML();
+		if (email != null) {
+			image_5.setHTML("<a href=\"mailto:"
+					+ email
+					+ "\"><img src='images/email.jpg' border=0 width='40px' height='30px'></a>");
+		} else {
+			image_5.setHTML("<img src='images/emailCrossed.jpg' border=0 width='40px' height='30px'>");
+		}
 		add(image_5, 172, 332);
 
 		String blogURL = ConvertJson.getStringValue(unoUserJson, "blogURL");
@@ -79,9 +91,9 @@ public class EntityPanel extends AbsolutePanel {
 		if (blogURL != null) {
 			image_6.setHTML("<a href='"
 					+ ConvertJson.getStringValue(unoUserJson, "blogURL")
-					+ "' target='_blank'><img src='images/BlogIcon.jpg' border=0 width='48px' height='48px'></a>");
+					+ "' target='_blank'><img src='images/BlogIcon.jpg' border=0 width='45px' height='40px'></a>");
 		} else {
-			image_6.setHTML("<img src='images/BlogIconCrossed.jpg' border=0 width='48px' height='48px'>");
+			image_6.setHTML("<img src='images/BlogIconCrossed.jpg' border=0 width='45px' height='40px'>");
 		}
 		add(image_6, 390, 332);
 

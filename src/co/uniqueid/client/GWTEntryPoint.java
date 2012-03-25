@@ -1,7 +1,8 @@
 package co.uniqueid.client;
 
 import co.uniqueid.client.Utilities.LoadingPanel;
-import co.uniqueid.client.entity.GetUniqueID;
+import co.uniqueid.client.home.Home;
+import co.uniqueid.client.home.SearchField;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window.Location;
@@ -20,15 +21,21 @@ public class GWTEntryPoint implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 
-		final String search = Location.getParameter("search");
-
-		if (search != null) {
-
-			GetUniqueID.getFromFacebookID(search);
-		}
-
 		vpMain.clear();
 		vpMain.add(new LoadingPanel());
 		RootPanel.get().add(vpMain);
+
+		final String search = Location.getParameter("search");
+		final String field = Location.getParameter("field");
+
+		if (search != null) {
+
+			SearchField.doSearch(search, field);
+
+		} else {
+
+			vpMain.clear();
+			vpMain.add(new Home());
+		}
 	}
 }

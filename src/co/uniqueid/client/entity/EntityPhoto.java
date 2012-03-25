@@ -37,10 +37,10 @@ public class EntityPhoto extends VerticalPanel {
 			this.add(image);
 		}
 
-		String firstName = ConvertJson.getStringValue(unoUserJson, "firstName");
-		String lastName = ConvertJson.getStringValue(unoUserJson, "lastName");
-		HTML name = new HTML("<font size=2 color=blue><a href=#>" + firstName
-				+ " " + lastName + "</a></font>");
+		HTML name = new HTML("<font size=2 color=blue><a href=#>"
+				+ ConvertJson.getStringValue(unoUserJson, "entityName")
+				+ "</a></font>");
+		name.setWidth("100px");
 		name.addClickHandler(click);
 		this.add(name);
 	}
