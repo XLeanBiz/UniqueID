@@ -1,9 +1,9 @@
 package co.uniqueid.client.entity;
 
-import co.uniqueid.authentication.client.uniqueid.UniqueIDService;
-import co.uniqueid.authentication.client.uniqueid.UniqueIDServiceAsync;
-import co.uniqueid.authentication.client.utilities.ConvertJson;
-import co.uniqueid.client.GWTEntryPoint;
+import co.uniqueid.client.UniqueIDService;
+import co.uniqueid.client.UniqueIDServiceAsync;
+import co.uniqueid.client.Utilities.ConvertJson;
+import co.uniqueid.client.home.MainPanel;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
@@ -41,8 +41,7 @@ public class GetUniqueID {
 
 				if (obj != null) {
 
-					GWTEntryPoint.vpMain.clear();
-					GWTEntryPoint.vpMain.add(new EntityPanel(obj));
+					MainPanel.InitializeEntity(obj);
 				}
 			}
 		});
@@ -72,9 +71,7 @@ public class GetUniqueID {
 
 							if (userJsonObject != null) {
 
-								GWTEntryPoint.vpMain.clear();
-								GWTEntryPoint.vpMain.add(new EntityPanel(
-										userJsonObject));
+								MainPanel.InitializeEntity(userJsonObject);
 
 							} else if (!"entityName".equals(fieldName)) {
 

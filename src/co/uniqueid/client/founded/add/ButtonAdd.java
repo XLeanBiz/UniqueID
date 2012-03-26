@@ -1,25 +1,24 @@
-package co.uniqueid.client.entity.edit;
-
-import co.uniqueid.client.home.MainPanel;
+package co.uniqueid.client.founded.add;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.Button;
 
-public class AddButton extends Button {
+public class ButtonAdd extends Button {
 
-	public AddButton() {
+	public ButtonAdd(final JSONObject unoUser) {
 
-		this.setText("Add New ID");
+		this.setText("Add");
 
 		this.addClickHandler(new ClickHandler() {
+
+			@Override
 			public void onClick(ClickEvent event) {
 
-				MainPanel.vpMain.clear();
-				MainPanel.vpMain.add(new EditEntity(new JSONObject()));
 			}
 		});
+
 	}
 
 }

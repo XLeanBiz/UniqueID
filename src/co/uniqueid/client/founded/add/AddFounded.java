@@ -1,4 +1,4 @@
-package co.uniqueid.client.entity.edit;
+package co.uniqueid.client.founded.add;
 
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
@@ -10,7 +10,7 @@ import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-public class SaveUniqueID {
+public class AddFounded {
 
 	public static void save(final JSONObject unoUserJson) {
 

@@ -12,9 +12,7 @@
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
 
   <!-- Other module inherits                                      -->
-  <inherits name="co.uniqueid.authentication.Authentication"/> 
   <inherits name="com.google.gwt.json.JSON" />
-  <inherits name='com.googlecode.gwt.crypto.Crypto' />
   <!-- inherits name="com.google.gwt.logging.Logging"/-->    
 
   <!-- Specify the app entry point class.                         -->

@@ -1,9 +1,10 @@
 package co.uniqueid.client.entity.edit;
 
-import co.uniqueid.authentication.client.utilities.ConvertJson;
+import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.Utilities.FormField;
 
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -34,11 +35,19 @@ public class EditEntity extends VerticalPanel {
 		this.setSpacing(20);
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
+
 		this.add(new CloseButton(unoUser));
+
+		if (unoUser.get("ID") != null) {
+			
+			this.add(new Label("Unique ID: "
+					+ ConvertJson.convertToString(unoUser.get("ID"))));
+		}
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		this.add(new Label("Please, add the information you want to be public:"));
+		this.add(new HTML(
+				"Please, add the information you want to be <b>PUBLIC</b>:"));
 
 		String firstNameValue = ConvertJson.convertToString(unoUser
 				.get("entityName"));

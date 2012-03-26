@@ -1,6 +1,6 @@
 package co.uniqueid.client.entity;
 
-import co.uniqueid.authentication.client.utilities.ConvertJson;
+import co.uniqueid.client.Utilities.ConvertJson;
 
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.AbsolutePanel;
@@ -10,10 +10,10 @@ public class EntityPanel extends AbsolutePanel {
 
 	public EntityPanel(final JSONObject unoUserJson) {
 
-		this.setSize("500px", "500px");
+		this.setSize("500px", "400px");
 
 		EntityPhoto image = new EntityPhoto(unoUserJson);
-		add(image, 259, 183);
+		add(image, 179, 143);
 
 		String facebook = ConvertJson.getStringValue(unoUserJson,
 				"facebookLogin");
@@ -25,7 +25,7 @@ public class EntityPanel extends AbsolutePanel {
 		} else {
 			image_1.setHTML("<img src='images/facebookIconCrossed.jpg' border=0 width='35px' height='35px'>");
 		}
-		add(image_1, 218, 80);
+		add(image_1, 138, 40);
 
 		String twitterID = ConvertJson.getStringValue(unoUserJson, "twitterID");
 		HTML image_2 = new HTML();
@@ -36,7 +36,7 @@ public class EntityPanel extends AbsolutePanel {
 		} else {
 			image_2.setHTML("<img src='images/TwitterIconCrossed.jpg' border=0 width='35px' height='35px'>");
 		}
-		add(image_2, 357, 80);
+		add(image_2, 277, 40);
 
 		String linkedinID = ConvertJson.getStringValue(unoUserJson,
 				"linkedinID");
@@ -48,7 +48,7 @@ public class EntityPanel extends AbsolutePanel {
 		} else {
 			image_3.setHTML("<img src='images/LinkedinIconCrossed.jpg' border=0 width='35px' height='35px'>");
 		}
-		add(image_3, 427, 197);
+		add(image_3, 347, 157);
 
 		String aboutme = ConvertJson.getStringValue(unoUserJson, "aboutmeURL");
 		HTML image_4 = new HTML();
@@ -60,7 +60,7 @@ public class EntityPanel extends AbsolutePanel {
 		} else {
 			image_4.setHTML("<img src='images/aboutmeCrossed.png' border=0 width='35px' height='35px'>");
 		}
-		add(image_4, 137, 197);
+		add(image_4, 57, 157);
 
 	/*	String githubLogin = ConvertJson.getStringValue(unoUserJson,
 				"githubLogin");
@@ -84,7 +84,7 @@ public class EntityPanel extends AbsolutePanel {
 		} else {
 			image_5.setHTML("<img src='images/emailCrossed.jpg' border=0 width='40px' height='30px'>");
 		}
-		add(image_5, 172, 332);
+		add(image_5, 92, 292);
 
 		String blogURL = ConvertJson.getStringValue(unoUserJson, "blogURL");
 		HTML image_6 = new HTML();
@@ -95,7 +95,7 @@ public class EntityPanel extends AbsolutePanel {
 		} else {
 			image_6.setHTML("<img src='images/BlogIconCrossed.jpg' border=0 width='45px' height='40px'>");
 		}
-		add(image_6, 390, 332);
-
+		add(image_6, 310, 292);
+		
 	}
 }
