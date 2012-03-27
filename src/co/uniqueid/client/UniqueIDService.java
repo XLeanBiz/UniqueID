@@ -9,9 +9,11 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("uniqueID")
 public interface UniqueIDService extends RemoteService {
 
-	String getUnoUser(final String unoUserID);
+	String getUniqueID(final String unoUserID);
 
 	String getUniqueIDByField(final String fieldName, final String fieldValue);
 
-	String saveUnoUser(final String unoUserJsonString);
+	String saveUniqueID(final String unoUserJsonString);
+	
+	void addFounded(final String uniqueID, final String foundedID);
 }

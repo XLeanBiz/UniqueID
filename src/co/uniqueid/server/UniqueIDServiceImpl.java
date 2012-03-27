@@ -18,7 +18,7 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 	
 	private static String addFoundedUrl = "http://api.unoidme.appspot.com/AddFoundedService";
 
-	public String getUnoUser(final String uniqueID) {
+	public String getUniqueID(final String uniqueID) {
 
 		String parameters = "UniqueID=" + uniqueID;
 
@@ -40,7 +40,7 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 		return jsonString;
 	}
 
-	public String saveUnoUser(String unoUserJsonString) {
+	public String saveUniqueID(String unoUserJsonString) {
 
 		JSONObject json = new JSONObject();
 		try {
@@ -54,15 +54,13 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 		return unoUserJsonString;
 	}
 	
-	public String addFounded(final String uniqueID, final String foundedID) {
+	public void addFounded(final String uniqueID, final String foundedID) {
 
 		String parameters = "UniqueID=" + uniqueID + "&FoundedID="
 				+ foundedID;
 
-		final String jsonString = URLUtilities.fetchURLPost(addFoundedUrl,
+		URLUtilities.fetchURLPost(addFoundedUrl,
 				parameters);
-
-		return jsonString;
 	}
 
 }

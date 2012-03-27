@@ -19,8 +19,7 @@ public class SaveUniqueID {
 
 		parameters += addSaveParameter(unoUserJson, "email");
 
-		parameters += addSaveParameter(unoUserJson,
-				"facebookLogin");
+		parameters += addSaveParameter(unoUserJson, "facebookLogin");
 
 		parameters += addSaveParameter(unoUserJson, "twitterID");
 
@@ -32,8 +31,7 @@ public class SaveUniqueID {
 
 		parameters += addSaveParameter(unoUserJson, "githubLogin");
 
-		parameters += addSaveParameter(unoUserJson,
-				"googleAccount");
+		parameters += addSaveParameter(unoUserJson, "googleAccount");
 
 		URLUtilities.fetchURLPost(saveUniqueIDUrl, parameters);
 
@@ -46,8 +44,8 @@ public class SaveUniqueID {
 
 		if (uniqueID == null) {
 
-			uniqueID = JSONUtilities.getString(unoUserJson, "entityName") + "_"
-					+ (new Date().getTime());
+			uniqueID = URLUtilities.compactName(JSONUtilities.getString(
+					unoUserJson, "entityName")) + "_" + (new Date().getTime());
 
 			try {
 				unoUserJson.put("ID", uniqueID);

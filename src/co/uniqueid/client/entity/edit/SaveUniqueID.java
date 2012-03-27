@@ -17,7 +17,7 @@ public class SaveUniqueID {
 		final UniqueIDServiceAsync unoIDService = GWT
 				.create(UniqueIDService.class);
 
-		unoIDService.saveUnoUser(unoUserJson.toString(),
+		unoIDService.saveUniqueID(unoUserJson.toString(),
 				new AsyncCallback<String>() {
 
 					public void onFailure(final Throwable caught) {

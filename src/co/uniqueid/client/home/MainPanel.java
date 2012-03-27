@@ -14,7 +14,7 @@ public class MainPanel extends VerticalPanel {
 
 		vpMain.clear();
 		vpMain.add(new EntityPanel(entityJsonObject));
-		
+
 		vpMain.add(new FoundedPanel(entityJsonObject));
 	}
 }

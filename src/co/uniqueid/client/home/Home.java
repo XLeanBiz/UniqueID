@@ -15,6 +15,8 @@ public class Home extends VerticalPanel {
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
 		this.add(new HTML("<font size=4><b>UNIQUE ID</b></font>"));
+		
+		this.add(new HTML("MVP #2"));
 
 		this.add(new AddButton());
 

@@ -1,6 +1,5 @@
 package co.uniqueid.client.founded.add;
 
-import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PopupPanel;
@@ -9,7 +8,9 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class AddFoundedPanel extends PopupPanel {
 
-	public AddFoundedPanel(final JSONObject unoUserJson) {
+	public static TextBox uniqueIDFounded = new TextBox();
+
+	public AddFoundedPanel(final String uniqueID) {
 
 		this.center();
 		this.setAutoHideEnabled(true);
@@ -21,11 +22,10 @@ public class AddFoundedPanel extends PopupPanel {
 		vp.setSpacing(10);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		TextBox uniqueIDFounded = new TextBox();
 		uniqueIDFounded.setWidth("200px");
 		vp.add(uniqueIDFounded);
 
-		vp.add(new ButtonAdd(unoUserJson));
+		vp.add(new ButtonAdd(uniqueID));
 
 		this.setWidget(vp);
 
