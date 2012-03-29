@@ -1,6 +1,6 @@
 package co.uniqueid.client.entity.edit;
 
-import co.uniqueid.client.home.MainPanel;
+import co.uniqueid.client.InitializeUniqueIDAppllication;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -16,8 +16,8 @@ public class AddButton extends Button {
 		this.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
-				MainPanel.vpMain.clear();
-				MainPanel.vpMain.add(new EditEntity(new JSONObject()));
+				InitializeUniqueIDAppllication.vpMain.clear();
+				InitializeUniqueIDAppllication.vpMain.add(new EditEntity(new JSONObject()));
 			}
 		});
 	}

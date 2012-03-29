@@ -1,9 +1,12 @@
 package co.uniqueid.client.home;
 
+import co.uniqueid.client.InitializeUniqueIDAppllication;
 import co.uniqueid.client.entity.edit.AddButton;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class Home extends VerticalPanel {
@@ -11,15 +14,24 @@ public class Home extends VerticalPanel {
 	public Home() {
 
 		this.setSpacing(40);
-		
+
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
 		this.add(new HTML("<font size=4><b>UNIQUE ID</b></font>"));
-		
+
 		this.add(new HTML("MVP #2"));
 
-		this.add(new AddButton());
+		HorizontalPanel hp = new HorizontalPanel();
+		hp.setSpacing(20);
+		hp.add(new AddButton());
+		hp.add(new Label(" or "));
+		hp.add(InitializeUniqueIDAppllication.InitializeFacebookLogin());
+		this.add(hp);
 
 		this.add(new SearchField());
+
+		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
+
+		this.add(new MainGroups());
 	}
 }

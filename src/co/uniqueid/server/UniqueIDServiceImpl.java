@@ -15,8 +15,14 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 	private static String searchUniqueIDUrl = "http://api.unoidme.appspot.com/SearchUniqueIDService";
 
 	private static String getUniqueIDUrl = "http://api.unoidme.appspot.com/GetUniqueIDService";
-	
+
 	private static String addFoundedUrl = "http://api.unoidme.appspot.com/AddFoundedService";
+
+	private static String addContactUrl = "http://api.unoidme.appspot.com/AddContactService";
+	
+	private static String listFoundedUrl = "http://api.unoidme.appspot.com/ListFoundedService";
+
+	private static String listContactsUrl = "http://api.unoidme.appspot.com/ListContactsService";
 
 	public String getUniqueID(final String uniqueID) {
 
@@ -53,14 +59,37 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 
 		return unoUserJsonString;
 	}
-	
+
 	public void addFounded(final String uniqueID, final String foundedID) {
 
-		String parameters = "UniqueID=" + uniqueID + "&FoundedID="
-				+ foundedID;
+		String parameters = "UniqueID=" + uniqueID + "&FoundedID=" + foundedID;
 
-		URLUtilities.fetchURLPost(addFoundedUrl,
-				parameters);
+		URLUtilities.fetchURLPost(addFoundedUrl, parameters);
+	}
+
+	public void addContact(final String uniqueID, final String contactID) {
+
+		String parameters = "UniqueID=" + uniqueID + "&ContactID=" + contactID;
+
+		URLUtilities.fetchURLPost(addContactUrl, parameters);
+	}
+	
+	public String listFounded(final String uniqueID) {
+
+		String parameters = "UniqueID=" + uniqueID;
+
+		final String jsonString =  URLUtilities.fetchURLPost(listFoundedUrl, parameters);
+		
+		return jsonString;
+	}
+
+	public String listContacts(final String uniqueID) {
+
+		String parameters = "UniqueID=" + uniqueID;
+
+		final String jsonString =  URLUtilities.fetchURLPost(listContactsUrl, parameters);
+
+		return jsonString;
 	}
 
 }

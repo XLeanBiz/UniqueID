@@ -16,4 +16,11 @@ public interface UniqueIDServiceAsync {
 
 	void addFounded(String uniqueID, String foundedID,
 			AsyncCallback<Void> callback);
+
+	void addContact(String uniqueID, String contactID,
+			AsyncCallback<Void> callback);
+
+	void listFounded(String uniqueID, AsyncCallback<String> callback);
+
+	void listContacts(String uniqueID, AsyncCallback<String> callback);
 }

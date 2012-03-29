@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/apps-marketplace.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-crypto-2.3.0-20110518.123759-2.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/json.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/Authentication.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -1,4 +1,4 @@
-package co.uniqueid.client.founded.add;
+package co.uniqueid.client.contacts.add;
 
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
@@ -6,11 +6,11 @@ import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class AddFoundedPanel extends PopupPanel {
+public class AddContactPanel extends PopupPanel {
 
-	public static TextBox uniqueIDFounded = new TextBox();
+	public static TextBox uniqueIDContact = new TextBox();
 
-	public AddFoundedPanel(final String uniqueID) {
+	public AddContactPanel(final String uniqueID) {
 
 		this.center();
 		this.setAutoHideEnabled(true);
@@ -23,16 +23,16 @@ public class AddFoundedPanel extends PopupPanel {
 
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		vp.add(new Label("Enter the Founded Unique ID:"));
+		vp.add(new Label("Enter the Contact Unique ID:"));
 
 		vp.setSpacing(10);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		uniqueIDFounded.setValue(null);
-		uniqueIDFounded.setWidth("200px");
-		vp.add(uniqueIDFounded);
+		uniqueIDContact.setValue(null);
+		uniqueIDContact.setWidth("200px");
+		vp.add(uniqueIDContact);
 
-		vp.add(new ButtonAddFounded(uniqueID, this));
+		vp.add(new ButtonAddContact(uniqueID, this));
 
 		this.setWidget(vp);
 

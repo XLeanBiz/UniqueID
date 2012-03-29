@@ -1,15 +1,13 @@
-package co.uniqueid.client.entity.edit;
-
-import co.uniqueid.client.InitializeUniqueIDAppllication;
+package co.uniqueid.client.contacts.add;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.PopupPanel;
 
 public class CloseButton extends HTML {
 
-	public CloseButton(final JSONObject unoUserJson) {
+	public CloseButton(final PopupPanel popup) {
 
 		this.setHTML("<a href=#><img src='images/close.gif' border=0></a>");
 
@@ -18,7 +16,7 @@ public class CloseButton extends HTML {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				InitializeUniqueIDAppllication.InitializeEntity(unoUserJson);
+				popup.hide();
 			}
 		});
 	}

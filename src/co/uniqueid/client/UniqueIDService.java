@@ -16,4 +16,10 @@ public interface UniqueIDService extends RemoteService {
 	String saveUniqueID(final String unoUserJsonString);
 	
 	void addFounded(final String uniqueID, final String foundedID);
+	
+	void addContact(final String uniqueID, final String contactID);
+	
+	String listFounded(final String uniqueID);
+	
+	String listContacts(final String uniqueID);
 }

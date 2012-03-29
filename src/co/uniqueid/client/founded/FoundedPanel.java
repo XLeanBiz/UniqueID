@@ -3,7 +3,7 @@ package co.uniqueid.client.founded;
 import java.util.ArrayList;
 
 import co.uniqueid.client.Utilities.ConvertJson;
-import co.uniqueid.client.founded.add.IconAdd;
+import co.uniqueid.client.founded.add.IconAddFounded;
 
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
@@ -29,13 +29,14 @@ public class FoundedPanel extends VerticalPanel {
 
 		hpLabel.setWidth("150px");
 
-		HTML htmlFounded = new HTML("Founded:");
+		HTML htmlFounded = new HTML("<font size=3 color=black><b>Founded:</b></font>");
 		hpLabel.add(htmlFounded);
 
-		hpLabel.add(new IconAdd(uniqueID));
+		hpLabel.add(new IconAddFounded(uniqueID));
 
 		this.add(hpLabel);
 
+		hpFounded.clear();
 		this.add(hpFounded);
 
 		listFounded(entityJsonObject);

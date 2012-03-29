@@ -1,10 +1,5 @@
 package co.uniqueid.client;
 
-import co.uniqueid.client.Utilities.LoadingPanel;
-import co.uniqueid.client.home.Home;
-import co.uniqueid.client.home.MainPanel;
-import co.uniqueid.client.home.SearchField;
-
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -18,22 +13,26 @@ public class GWTEntryPoint implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		
+		RootPanel.get().add(InitializeUniqueIDAppllication.vpMain);
 
-		MainPanel.vpMain.clear();
-		MainPanel.vpMain.add(new LoadingPanel());
-		RootPanel.get().add(MainPanel.vpMain);
+		final String authenticationCode = Location.getParameter("code");
 
-		final String search = Location.getParameter("search");
-		final String field = Location.getParameter("field");
+		final String error = Location.getParameter("error_reason");
 
-		if (search != null) {
+		if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
+				.equals(authenticationCode)))) {
 
-			SearchField.doSearch(search, field);
-
+			InitializeUniqueIDAppllication
+					.VerifyFacebookLogin(authenticationCode);
 		} else {
 
-			MainPanel.vpMain.clear();
-			MainPanel.vpMain.add(new Home());
+			final String ID = Location.getParameter("ID");
+			final String search = Location.getParameter("search");
+			final String field = Location.getParameter("field");
+
+			InitializeUniqueIDAppllication.init(ID, search, field);
 		}
+
 	}
 }

@@ -3,10 +3,11 @@ package co.uniqueid.client.founded.add;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.PopupPanel;
 
-public class ButtonAdd extends Button {
+public class ButtonAddFounded extends Button {
 
-	public ButtonAdd(final String uniqueID) {
+	public ButtonAddFounded(final String uniqueID, final PopupPanel popup) {
 
 		this.setText("Add");
 
@@ -21,6 +22,8 @@ public class ButtonAdd extends Button {
 
 					AddFounded.save(uniqueID, foundedID);
 				}
+
+				popup.hide();
 			}
 		});
 

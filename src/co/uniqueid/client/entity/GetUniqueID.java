@@ -1,9 +1,9 @@
 package co.uniqueid.client.entity;
 
+import co.uniqueid.client.InitializeUniqueIDAppllication;
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
 import co.uniqueid.client.Utilities.ConvertJson;
-import co.uniqueid.client.home.MainPanel;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
@@ -41,7 +41,7 @@ public class GetUniqueID {
 
 				if (obj != null) {
 
-					MainPanel.InitializeEntity(obj);
+					InitializeUniqueIDAppllication.InitializeEntity(obj);
 				}
 			}
 		});
@@ -71,11 +71,16 @@ public class GetUniqueID {
 
 							if (userJsonObject != null) {
 
-								MainPanel.InitializeEntity(userJsonObject);
+								InitializeUniqueIDAppllication.InitializeEntity(userJsonObject);
 
 							} else if (!"entityName".equals(fieldName)) {
 
 								GetUniqueID.getFromField("entityName",
+										fieldValue);
+								
+							} else if (!"facebookLogin".equals(fieldName)) {
+
+								GetUniqueID.getFromField("facebookLogin",
 										fieldValue);
 							} else {
 

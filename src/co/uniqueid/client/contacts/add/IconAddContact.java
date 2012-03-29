@@ -1,12 +1,12 @@
-package co.uniqueid.client.founded.add;
+package co.uniqueid.client.contacts.add;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.HTML;
 
-public class IconAdd extends HTML {
+public class IconAddContact extends HTML {
 
-	public IconAdd(final String uniqueID) {
+	public IconAddContact(final String uniqueID) {
 
 		this.setHTML("<a href=#><img src='images/add.gif' border=0></a>");
 
@@ -15,7 +15,7 @@ public class IconAdd extends HTML {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				AddFoundedPanel popup = new AddFoundedPanel(uniqueID);
+				AddContactPanel popup = new AddContactPanel(uniqueID);
 				popup.show();
 			}
 		});

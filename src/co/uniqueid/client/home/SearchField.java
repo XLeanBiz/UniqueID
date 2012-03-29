@@ -56,6 +56,10 @@ public class SearchField extends HorizontalPanel {
 
 		if (field == null) {
 
+			GetUniqueID.getFromField("ID", search);
+
+		} else if (field.contains("facebook")) {
+
 			GetUniqueID.getFromField("facebookLogin", search);
 
 		} else if ("ID".equals(field)) {

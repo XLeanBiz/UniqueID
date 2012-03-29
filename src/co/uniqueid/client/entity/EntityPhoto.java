@@ -1,8 +1,8 @@
 package co.uniqueid.client.entity;
 
+import co.uniqueid.client.InitializeUniqueIDAppllication;
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.entity.edit.EditEntity;
-import co.uniqueid.client.home.MainPanel;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -23,8 +23,8 @@ public class EntityPhoto extends VerticalPanel {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				MainPanel.vpMain.clear();
-				MainPanel.vpMain.add(new EditEntity(unoUserJson));
+				InitializeUniqueIDAppllication.vpMain.clear();
+				InitializeUniqueIDAppllication.vpMain.add(new EditEntity(unoUserJson));
 			}
 		};
 
