@@ -49,7 +49,7 @@ public class ButtonSave extends Button {
 			final String fieldName) {
 
 		String value = field.getValue();
-		if (value != null && !("".equals(value))) {
+		if (value != null) {
 			unoUSer.put(fieldName, new JSONString(field.getValue()));
 		}
 	}

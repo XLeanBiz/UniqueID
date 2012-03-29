@@ -9,6 +9,7 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -36,6 +37,7 @@ public class FoundedPanel extends VerticalPanel {
 
 		this.add(hpLabel);
 
+		hpFounded.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 		hpFounded.clear();
 		this.add(hpFounded);
 

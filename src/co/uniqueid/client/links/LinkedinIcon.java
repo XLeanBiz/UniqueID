@@ -15,7 +15,7 @@ public class LinkedinIcon {
 		String linkedinID = ConvertJson.getStringValue(unoUserJson,
 				"linkedinID");
 
-		if (linkedinID != null) {
+		if (linkedinID != null && !"".equals(linkedinID)) {
 
 			String url = linkedinID;
 			if (!linkedinID.startsWith("http://")) {

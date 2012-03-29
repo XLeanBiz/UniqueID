@@ -14,7 +14,7 @@ public class EmailIcon {
 
 		String email = ConvertJson.getStringValue(unoUserJson, "email");
 
-		if (email != null) {
+		if (email != null && !"".equals(email)) {
 
 			icon = new HTML("<a href=\"mailto:" + email
 					+ "\"><img src='images/email.jpg' border=0 width='"

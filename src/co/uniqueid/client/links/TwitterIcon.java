@@ -14,7 +14,7 @@ public class TwitterIcon {
 
 		String twitterID = ConvertJson.getStringValue(unoUserJson, "twitterID");
 
-		if (twitterID != null) {
+		if (twitterID != null && !"".equals(twitterID)) {
 
 			String url = twitterID;
 			if (!twitterID.startsWith("http://")) {

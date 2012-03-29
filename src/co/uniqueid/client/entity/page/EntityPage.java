@@ -1,7 +1,7 @@
 package co.uniqueid.client.entity.page;
 
-import co.uniqueid.client.InitializeUniqueIDAppllication;
 import co.uniqueid.client.Utilities.ConvertJson;
+import co.uniqueid.client.entity.GetUniqueID;
 import co.uniqueid.client.links.AboutMeIcon;
 import co.uniqueid.client.links.BlogIcon;
 import co.uniqueid.client.links.EmailIcon;
@@ -72,8 +72,7 @@ public class EntityPage extends VerticalPanel {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				InitializeUniqueIDAppllication.init(ConvertJson.getStringValue(
-						unoUserJson, "ID"));
+				GetUniqueID.get(unoUserJson);
 			}
 		};
 

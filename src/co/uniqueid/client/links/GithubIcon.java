@@ -15,7 +15,7 @@ public class GithubIcon {
 		String githubLogin = ConvertJson.getStringValue(unoUserJson,
 				"githubLogin");
 
-		if (githubLogin != null) {
+		if (githubLogin != null && !"".equals(githubLogin)) {
 
 			String url = githubLogin;
 			if (!githubLogin.startsWith("http://")) {

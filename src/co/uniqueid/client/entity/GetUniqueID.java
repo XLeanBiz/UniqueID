@@ -4,6 +4,7 @@ import co.uniqueid.client.InitializeUniqueIDAppllication;
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
 import co.uniqueid.client.Utilities.ConvertJson;
+import co.uniqueid.client.entity.page.EntityPage;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
@@ -13,17 +14,28 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class GetUniqueID {
 
-	public static void get(final String unoUser) {
+	public static void get(final String uniqueIDJsonString) {
 
-		JSONObject obj = (JSONObject) JSONParser.parseStrict(unoUser);
+		JSONObject obj = (JSONObject) JSONParser
+				.parseStrict(uniqueIDJsonString);
 
-		String unoUserID = ConvertJson.getStringValue(obj, "ID");
+		get(obj);
+	}
 
-		getFromID(unoUserID);
+	public static void get(final JSONObject uniqueIDJson) {
+
+		String unoUserID = ConvertJson.getStringValue(uniqueIDJson, "ID");
+
+		getFromID(unoUserID, false);
 
 	}
 
 	public static void getFromID(final String unoUserID) {
+
+		getFromID(unoUserID, false);
+	}
+
+	public static void getFromID(final String unoUserID, final boolean list) {
 
 		final UniqueIDServiceAsync unoIDService = GWT
 				.create(UniqueIDService.class);
@@ -41,7 +53,15 @@ public class GetUniqueID {
 
 				if (obj != null) {
 
-					InitializeUniqueIDAppllication.InitializeEntity(obj);
+					if (list) {
+
+						InitializeUniqueIDAppllication.vpMain.clear();
+						InitializeUniqueIDAppllication.vpMain
+								.add(new EntityPage(obj));
+					} else {
+
+						InitializeUniqueIDAppllication.InitializeEntity(obj);
+					}
 				}
 			}
 		});
@@ -71,13 +91,14 @@ public class GetUniqueID {
 
 							if (userJsonObject != null) {
 
-								InitializeUniqueIDAppllication.InitializeEntity(userJsonObject);
+								InitializeUniqueIDAppllication
+										.InitializeEntity(userJsonObject);
 
 							} else if (!"entityName".equals(fieldName)) {
 
 								GetUniqueID.getFromField("entityName",
 										fieldValue);
-								
+
 							} else if (!"facebookLogin".equals(fieldName)) {
 
 								GetUniqueID.getFromField("facebookLogin",

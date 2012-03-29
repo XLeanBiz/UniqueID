@@ -1,6 +1,14 @@
 package co.uniqueid.client;
 
+import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
+import co.uniqueid.authentication.client.utilities.EncryptText;
+import co.uniqueid.client.Utilities.ConvertJson;
+import co.uniqueid.client.home.Header;
+
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -13,25 +21,41 @@ public class GWTEntryPoint implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		
-		RootPanel.get().add(InitializeUniqueIDAppllication.vpMain);
 
-		final String authenticationCode = Location.getParameter("code");
+		String uniqueIDJson = EncryptText
+				.decrypt(Cookies.getCookie("UniqueID"));
 
-		final String error = Location.getParameter("error_reason");
+		if (uniqueIDJson == null || uniqueIDJson.equals("null")) {
 
-		if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
-				.equals(authenticationCode)))) {
+			final String authenticationCode = Location.getParameter("code");
 
-			InitializeUniqueIDAppllication
-					.VerifyFacebookLogin(authenticationCode);
+			final String error = Location.getParameter("error_reason");
+
+			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
+					.equals(authenticationCode)))) {
+
+				InitializeUniqueIDAppllication
+						.VerifyFacebookLogin(authenticationCode);
+			} else {
+
+				final String ID = Location.getParameter("ID");
+				final String search = Location.getParameter("search");
+				final String field = Location.getParameter("field");
+
+				InitializeUniqueIDAppllication.init(ID, search, field);
+			}
+
 		} else {
 
-			final String ID = Location.getParameter("ID");
-			final String search = Location.getParameter("search");
-			final String field = Location.getParameter("field");
+			JSONObject obj = (JSONObject) JSONParser.parseStrict(uniqueIDJson);
 
-			InitializeUniqueIDAppllication.init(ID, search, field);
+			UniqueIDGlobalVariables.uniqueID = obj;
+
+			RootPanel.get().add(new Header());
+
+			String uniqueID = ConvertJson.convertToString(obj.get("ID"));
+
+			InitializeUniqueIDAppllication.init(uniqueID);
 		}
 
 	}

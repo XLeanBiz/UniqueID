@@ -28,15 +28,17 @@ public class ContactsPanel extends VerticalPanel {
 
 		hpLabel.setWidth("150px");
 
-		HTML htmlFounded = new HTML("<a href=#><font size=3 color=black><b>Contacts:</b></font></a>");
+		HTML htmlFounded = new HTML(
+				"<a href=#><font size=3 color=black><b>Contacts:</b></font></a>");
 		hpLabel.add(htmlFounded);
 		htmlFounded.addClickHandler(new ClickHandler() {
-			
+
 			@Override
 			public void onClick(ClickEvent event) {
-				
+
 				InitializeUniqueIDAppllication.vpMain.clear();
-				InitializeUniqueIDAppllication.vpMain.add(new EntityPage(entityJsonObject));
+				InitializeUniqueIDAppllication.vpMain.add(new EntityPage(
+						entityJsonObject));
 			}
 		});
 
@@ -56,13 +58,21 @@ public class ContactsPanel extends VerticalPanel {
 		ArrayList<String> contactsArray = convertContactsToArray(entityJsonObject);
 
 		int j = 0;
+		HorizontalPanel hp = new HorizontalPanel();
 		for (String contactUniqueID : contactsArray) {
-			
+
 			if (j % 3 == 0) {
-				
+
+				hp = new HorizontalPanel();
+
+				hp.setWidth("600px");
+
+				vpContacts.add(hp);
 			}
 
-			vpContacts.add(new ContactsList(contactUniqueID));
+			hp.add(new ContactsList(contactUniqueID));
+
+			j++;
 		}
 	}
 

@@ -15,6 +15,8 @@ public class Home extends VerticalPanel {
 
 		this.setSpacing(40);
 
+		// this.add(new FacebookFeedbackButton());
+
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
 		this.add(new HTML("<font size=4><b>UNIQUE ID</b></font>"));

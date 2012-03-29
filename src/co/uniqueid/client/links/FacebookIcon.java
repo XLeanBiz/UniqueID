@@ -15,7 +15,7 @@ public class FacebookIcon {
 		String facebook = ConvertJson.getStringValue(unoUserJson,
 				"facebookLogin");
 
-		if (facebook != null) {
+		if (facebook != null && !"".equals(facebook)) {
 
 			String url = facebook;
 			if (!facebook.startsWith("http://")) {

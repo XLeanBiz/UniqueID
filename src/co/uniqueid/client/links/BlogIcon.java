@@ -14,7 +14,7 @@ public class BlogIcon {
 
 		String blogURL = ConvertJson.getStringValue(unoUserJson, "blogURL");
 
-		if (blogURL != null) {
+		if (blogURL != null && !"".equals(blogURL)) {
 
 			icon = new HTML(
 					"<a href='"

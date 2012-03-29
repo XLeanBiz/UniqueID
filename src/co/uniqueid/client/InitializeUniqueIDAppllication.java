@@ -1,5 +1,6 @@
 package co.uniqueid.client;
 
+import co.uniqueid.authentication.client.login.facebook.FacebookLoginPanel;
 import co.uniqueid.authentication.client.login.facebook.FacebookLoginVerifyer;
 import co.uniqueid.authentication.client.login.facebook.LoginWithFacebookButton;
 import co.uniqueid.client.Utilities.LoadingPanel;
@@ -11,6 +12,7 @@ import co.uniqueid.client.home.Home;
 import co.uniqueid.client.home.SearchField;
 
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class InitializeUniqueIDAppllication extends VerticalPanel {
@@ -29,12 +31,14 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 	public static void init(final String ID, final String search,
 			final String field) {
 
-		InitializeUniqueIDAppllication.vpMain.clear();
-		InitializeUniqueIDAppllication.vpMain.add(new LoadingPanel());
+		RootPanel.get().add(vpMain);
+
+		vpMain.clear();
+		vpMain.add(new LoadingPanel());
 
 		if (ID != null) {
 
-			GetUniqueID.getFromID(ID);
+			GetUniqueID.getFromID(ID, true);
 
 		} else if (search != null) {
 
@@ -42,8 +46,8 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 
 		} else {
 
-			InitializeUniqueIDAppllication.vpMain.clear();
-			InitializeUniqueIDAppllication.vpMain.add(new Home());
+			vpMain.clear();
+			vpMain.add(new Home());
 		}
 	}
 
@@ -67,4 +71,10 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 		FacebookLoginVerifyer.authenticate(FacebookAppID, authenticationCode,
 				Facebook_REDIRECT_URL);
 	}
+
+	public static void InitializeFacebookPanel() {
+
+		FacebookLoginPanel.setPanel(FacebookAppID, Facebook_REDIRECT_URL);
+	}
+
 }

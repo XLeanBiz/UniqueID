@@ -14,7 +14,7 @@ public class AboutMeIcon {
 
 		String aboutme = ConvertJson.getStringValue(unoUserJson, "aboutmeURL");
 
-		if (aboutme != null) {
+		if (aboutme != null && !"".equals(aboutme)) {
 
 			String url = aboutme;
 			if (!aboutme.startsWith("http://")) {
