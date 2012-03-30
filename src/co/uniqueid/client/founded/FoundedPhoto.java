@@ -1,7 +1,7 @@
 package co.uniqueid.client.founded;
 
-import co.uniqueid.client.InitializeUniqueIDAppllication;
 import co.uniqueid.client.Utilities.ConvertJson;
+import co.uniqueid.client.entity.GetUniqueID;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -32,8 +32,7 @@ public class FoundedPhoto extends HTML {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				InitializeUniqueIDAppllication.init(ConvertJson.getStringValue(
-						unoUserJson, "ID"));
+				GetUniqueID.get(unoUserJson);
 			}
 		});
 	}

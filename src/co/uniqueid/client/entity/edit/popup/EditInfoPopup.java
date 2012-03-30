@@ -1,16 +1,18 @@
-package co.uniqueid.client.founded.add;
+package co.uniqueid.client.entity.edit.popup;
 
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class AddFoundedPanel extends PopupPanel {
+public class EditInfoPopup extends PopupPanel {
 
-	public static TextBox uniqueIDFounded = new TextBox();
+	public static TextBox info = new TextBox();
 
-	public AddFoundedPanel(final String uniqueID) {
+	public EditInfoPopup(final JSONObject unoUserJson, final String infoKey,
+			final String infoName) {
 
 		this.center();
 		this.setAutoHideEnabled(true);
@@ -24,16 +26,16 @@ public class AddFoundedPanel extends PopupPanel {
 
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		vp.add(new Label("Enter the Founded Unique ID:"));
+		vp.add(new HTML("Enter the " + infoName + ":"));
 
 		vp.setSpacing(10);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		uniqueIDFounded.setValue(null);
-		uniqueIDFounded.setWidth("200px");
-		vp.add(uniqueIDFounded);
+		info.setValue(null);
+		info.setWidth("200px");
+		vp.add(info);
 
-		vp.add(new ButtonAddFounded(uniqueID, this));
+		vp.add(new ButtonSaveInfo(unoUserJson, infoKey, this));
 
 		this.setWidget(vp);
 

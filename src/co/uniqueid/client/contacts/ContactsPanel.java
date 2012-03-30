@@ -84,7 +84,7 @@ public class ContactsPanel extends VerticalPanel {
 
 			JSONArray contacts = obj.get("Contacts").isArray();
 
-			for (int i = 0; i < contacts.size(); i++) {
+			for (int i = (contacts.size()-1); i >=0 ; i--) {
 
 				String contactString = contacts.get(i).toString();
 

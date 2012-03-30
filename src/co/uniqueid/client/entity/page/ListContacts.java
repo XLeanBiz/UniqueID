@@ -8,7 +8,6 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Label;
 
 public class ListContacts {
 
@@ -28,14 +27,16 @@ public class ListContacts {
 				JSONArray jsonArray = (JSONArray) JSONParser
 						.parseStrict(jsonResults);
 
-				for (int i = 0; i < jsonArray.size(); i++) {
+				int j=1;
+				for (int i = (jsonArray.size() - 1); i >= 0; i--) {
 
 					JSONObject contactJson = (JSONObject) jsonArray.get(i);
 
-					EntityPage.gridContacts.setWidget(i + 1, 1,
+					EntityPage.gridContacts.setWidget(j, 1,
 							EntityPage.getEntityName(contactJson, "30"));
-					EntityPage.gridContacts.setWidget(i + 1, 2,
+					EntityPage.gridContacts.setWidget(j, 2,
 							EntityPage.getIconsPanel(contactJson));
+					j++;
 				}
 			}
 		});

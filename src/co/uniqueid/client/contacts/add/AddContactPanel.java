@@ -16,6 +16,7 @@ public class AddContactPanel extends PopupPanel {
 		this.setAutoHideEnabled(true);
 
 		VerticalPanel vp = new VerticalPanel();
+		vp.setWidth("300px");
 
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 

@@ -1,7 +1,10 @@
 package co.uniqueid.client.links;
 
 import co.uniqueid.client.Utilities.ConvertJson;
+import co.uniqueid.client.entity.edit.popup.EditInfoPopup;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HTML;
 
@@ -33,9 +36,20 @@ public class LinkedinIcon {
 
 			if (crossedImage) {
 				icon = new HTML(
-						"<img src='images/LinkedinIconCrossed.jpg' border=0 width='"
+						"<a href=#><img src='images/LinkedinIconCrossed.jpg' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'>");
+								+ "px'></a>");
+
+				icon.addClickHandler(new ClickHandler() {
+
+					@Override
+					public void onClick(ClickEvent event) {
+
+						EditInfoPopup popup = new EditInfoPopup(unoUserJson,
+								"linkedinID", "<a href='http://linkedin.com' target='_blank'>LinkedIn</a> ID");
+						popup.show();
+					}
+				});
 			}
 		}
 
