@@ -31,7 +31,7 @@ public class GithubIcon {
 							+ url
 							+ "' target='_blank'><img src='images/github-icon.png' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
-							+ "px'></a>");
+							+ "px' title='Github'></a>");
 		} else {
 
 			if (crossedImage) {
@@ -39,7 +39,7 @@ public class GithubIcon {
 				icon = new HTML(
 						"<img src='images/github-iconCrossed.png' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'></a>");
+								+ "px' title='Github'></a>");
 				
 				icon.addClickHandler(new ClickHandler() {
 

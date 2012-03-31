@@ -24,7 +24,7 @@ public class AddContactPanel extends PopupPanel {
 
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		vp.add(new Label("Enter the Contact Unique ID:"));
+		vp.add(new Label("Enter the Contact Name or Unique ID:"));
 
 		vp.setSpacing(10);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);

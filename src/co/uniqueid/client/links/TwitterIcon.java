@@ -30,7 +30,7 @@ public class TwitterIcon {
 							+ url
 							+ "' target='_blank'><img src='images/TwitterIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
-							+ "px'></a>");
+							+ "px' title='Twitter'></a>");
 		} else {
 
 			if (crossedImage) {
@@ -38,7 +38,7 @@ public class TwitterIcon {
 				icon = new HTML(
 						"<img src='images/TwitterIconCrossed.jpg' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'></a>");
+								+ "px' title='Twitter'></a>");
 				
 				icon.addClickHandler(new ClickHandler() {
 

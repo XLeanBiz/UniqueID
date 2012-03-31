@@ -10,14 +10,14 @@ import com.google.gwt.user.client.ui.HTML;
 
 public class FoundedPhoto extends HTML {
 
-	public FoundedPhoto(final JSONObject unoUserJson) {
+	public FoundedPhoto(final JSONObject unoUserJson, String imageHeight) {
 
 		String image = ConvertJson.getStringValue(unoUserJson, "image");
 
 		if (image != null) {
 
 			this.setHTML("<a href='#'><img src='" + image
-					+ "' border=0  height='60px' title='"
+					+ "' border=0  height='" + imageHeight + "px' title='"
 					+ ConvertJson.getStringValue(unoUserJson, "entityName")
 					+ "'></a>");
 		} else {

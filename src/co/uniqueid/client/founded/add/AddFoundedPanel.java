@@ -24,7 +24,7 @@ public class AddFoundedPanel extends PopupPanel {
 
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		vp.add(new Label("Enter the Founded Unique ID:"));
+		vp.add(new Label("Enter the Founded Name or Unique ID:"));
 
 		vp.setSpacing(10);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);

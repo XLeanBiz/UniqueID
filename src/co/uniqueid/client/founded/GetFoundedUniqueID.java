@@ -29,7 +29,7 @@ public class GetFoundedUniqueID {
 						.parseStrict(jsonResults);
 
 				hpPhoto.clear();
-				hpPhoto.add(new FoundedPhoto(obj));
+				hpPhoto.add(new FoundedPhoto(obj, "60"));
 			}
 		});
 	}

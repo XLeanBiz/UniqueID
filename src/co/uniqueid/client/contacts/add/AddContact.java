@@ -2,6 +2,7 @@ package co.uniqueid.client.contacts.add;
 
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
+import co.uniqueid.client.entity.GetUniqueID;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window.Location;
@@ -22,8 +23,7 @@ public class AddContact {
 
 			public void onSuccess(Void results) {
 
-				Location.assign(GWT.getHostPageBaseURL() + "?search="
-						+ uniqueID + "&field=ID");
+				GetUniqueID.getFromID(uniqueID);
 
 			}
 		});

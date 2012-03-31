@@ -21,7 +21,7 @@ public class EmailIcon {
 
 			icon = new HTML("<a href=\"mailto:" + email
 					+ "\"><img src='images/email.jpg' border=0 width='"
-					+ imageSize + "px' height='" + imageSize + "px'></a>");
+					+ imageSize + "px' height='" + imageSize + "px' title='E-mail'></a>");
 		} else {
 
 			if (crossedImage) {
@@ -29,7 +29,7 @@ public class EmailIcon {
 				icon = new HTML(
 						"<img src='images/emailCrossed.jpg' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'></a>");
+								+ "px' title='E-mail'></a>");
 				
 				icon.addClickHandler(new ClickHandler() {
 

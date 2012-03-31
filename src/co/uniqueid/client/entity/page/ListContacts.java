@@ -27,15 +27,20 @@ public class ListContacts {
 				JSONArray jsonArray = (JSONArray) JSONParser
 						.parseStrict(jsonResults);
 
-				int j=1;
+				int j = 1;
 				for (int i = (jsonArray.size() - 1); i >= 0; i--) {
 
 					JSONObject contactJson = (JSONObject) jsonArray.get(i);
 
 					EntityPage.gridContacts.setWidget(j, 1,
 							EntityPage.getEntityName(contactJson, "30"));
+
 					EntityPage.gridContacts.setWidget(j, 2,
 							EntityPage.getIconsPanel(contactJson));
+
+					EntityPage.gridContacts.setWidget(j, 4,
+							EntityPage.getFoundedImages(contactJson));
+
 					j++;
 				}
 			}

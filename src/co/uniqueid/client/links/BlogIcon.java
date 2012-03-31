@@ -24,7 +24,7 @@ public class BlogIcon {
 							+ blogURL
 							+ "' target='_blank'><img src='images/BlogIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
-							+ "px'></a>");
+							+ "px' title='Blog'></a>");
 		} else {
 
 			if (crossedImage) {
@@ -32,7 +32,7 @@ public class BlogIcon {
 				icon = new HTML(
 						"<img src='images/BlogIconCrossed.jpg' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'></a>");
+								+ "px' title='Blog'></a>");
 				
 				icon.addClickHandler(new ClickHandler() {
 

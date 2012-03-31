@@ -33,8 +33,12 @@ public class ListFounded {
 
 					EntityPage.gridFounded.setWidget(i + 1, 1,
 							EntityPage.getEntityName(contactJson, "30"));
+
 					EntityPage.gridFounded.setWidget(i + 1, 2,
 							EntityPage.getIconsPanel(contactJson));
+
+					EntityPage.gridFounded.setWidget(i + 1, 4,
+							EntityPage.getFoundedImages(contactJson));
 				}
 			}
 		});

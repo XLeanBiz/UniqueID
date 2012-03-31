@@ -2,6 +2,7 @@ package co.uniqueid.client.entity.page;
 
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.entity.GetUniqueID;
+import co.uniqueid.client.founded.FoundedPhoto;
 import co.uniqueid.client.links.AboutMeIcon;
 import co.uniqueid.client.links.BlogIcon;
 import co.uniqueid.client.links.EmailIcon;
@@ -11,6 +12,7 @@ import co.uniqueid.client.links.TwitterIcon;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
@@ -41,9 +43,11 @@ public class EntityPage extends VerticalPanel {
 
 			ListFounded.list(uniqueID);
 
+			gridFounded.clear();
 			gridFounded.setHTML(0, 0,
 					"<font size=3 color=red><b>Founded:</b></font>");
 			gridFounded.getColumnFormatter().setWidth(1, "250px");
+			gridFounded.getColumnFormatter().setWidth(3, "30px");
 
 			add(gridFounded);
 		}
@@ -52,9 +56,12 @@ public class EntityPage extends VerticalPanel {
 
 			ListContacts.list(uniqueID);
 
+			gridContacts.clear();
 			gridContacts.setHTML(0, 0,
 					"<font size=3 color=red><b>Contacts:</b></font>");
 			gridContacts.getColumnFormatter().setWidth(1, "250px");
+			gridContacts.getColumnFormatter().setWidth(3, "30px");
+
 			add(gridContacts);
 		}
 	}
@@ -123,4 +130,27 @@ public class EntityPage extends VerticalPanel {
 			hp.add(icon);
 		}
 	}
+
+	public static HorizontalPanel getFoundedImages(final JSONObject contactJson) {
+
+		HorizontalPanel hpFounded = new HorizontalPanel();
+		hpFounded.setSpacing(10);
+		hpFounded.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+
+		JSONArray arrayFounded = (JSONArray) contactJson.get("FoundedEntities");
+
+		if (arrayFounded != null) {
+
+			for (int i = 0; i < arrayFounded.size(); i++) {
+
+				JSONObject founded = (JSONObject) arrayFounded.get(i);
+
+				HTML foundedPhoto = new FoundedPhoto(founded, "20");
+
+				hpFounded.add(foundedPhoto);
+			}
+		}
+		return hpFounded;
+	}
+
 }

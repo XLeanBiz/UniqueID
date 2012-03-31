@@ -34,6 +34,10 @@ public class MainGroups extends VerticalPanel {
 				"Alchemist Series: CustomerDevelopment & Metrics");
 		group2.addClickHandler(getClickHandler("AlchemistSeriesCustomerDevelopment_1332897337108"));
 		vpMainGroups.add(group2);
+		
+		Anchor group3 = new Anchor("Ansir Innovation Center");
+		group3.addClickHandler(getClickHandler("AnsirInnovationCenter_1333132928482"));
+		vpMainGroups.add(group3);
 
 		return vpMainGroups;
 	}

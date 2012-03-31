@@ -31,14 +31,14 @@ public class LinkedinIcon {
 							+ url
 							+ "' target='_blank'><img src='images/LinkedinIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
-							+ "px'></a>");
+							+ "px' title='LinkedIn'></a>");
 		} else {
 
 			if (crossedImage) {
 				icon = new HTML(
 						"<a href=#><img src='images/LinkedinIconCrossed.jpg' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'></a>");
+								+ "px' title='LinkedIn'></a>");
 
 				icon.addClickHandler(new ClickHandler() {
 

@@ -30,7 +30,7 @@ public class AboutMeIcon {
 							+ url
 							+ "' target='_blank'><img src='images/aboutme.png' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
-							+ "px'></a>");
+							+ "px' title='About Me'></a>");
 
 		} else {
 
@@ -39,7 +39,7 @@ public class AboutMeIcon {
 				icon = new HTML(
 						"<img src='images/aboutmeCrossed.png' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'></a>");
+								+ "px' title='About Me'></a>");
 				
 				icon.addClickHandler(new ClickHandler() {
 

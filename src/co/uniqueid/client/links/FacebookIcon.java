@@ -31,7 +31,7 @@ public class FacebookIcon {
 							+ url
 							+ "' target='_blank'><img src='images/facebookIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
-							+ "px'></a>");
+							+ "px' title='Facebook'></a>");
 		} else {
 
 			if (crossedImage) {
@@ -39,7 +39,7 @@ public class FacebookIcon {
 				icon = new HTML(
 						"<img src='images/facebookIconCrossed.jpg' border=0 width='"
 								+ imageSize + "px' height='" + imageSize
-								+ "px'></a>");
+								+ "px' title='Facebook'></a>");
 				
 				icon.addClickHandler(new ClickHandler() {
 

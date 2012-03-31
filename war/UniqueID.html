@@ -5,45 +5,79 @@
 <!-- with a "Quirks Mode" doctype is not supported. -->
 
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <!--                                                               -->
-    <!-- Consider inlining CSS to reduce the number of requested files -->
-    <!--                                                               -->
-    <link type="text/css" rel="stylesheet" href="UniqueID.css">
+<!--                                                               -->
+<!-- Consider inlining CSS to reduce the number of requested files -->
+<!--                                                               -->
+<link type="text/css" rel="stylesheet" href="UniqueID.css">
 
-    <!--                                           -->
-    <!-- Any title is fine                         -->
-    <!--                                           -->
-    <title>UNIQUE ID</title>
-    
-    <!--                                           -->
-    <!-- This script loads your compiled module.   -->
-    <!-- If you add any GWT meta tags, they must   -->
-    <!-- be added before this line.                -->
-    <!--                                           -->
-    <script type="text/javascript" language="javascript" src="uniqueid/uniqueid.nocache.js"></script>
-  </head>
+<!--                                           -->
+<!-- Any title is fine                         -->
+<!--                                           -->
+<title>UNIQUE ID</title>
 
-  <!--                                           -->
-  <!-- The body can have arbitrary html, or      -->
-  <!-- you can leave the body empty if you want  -->
-  <!-- to create a completely dynamic UI.        -->
-  <!--                                           -->
-  <body>
+<!-- start Mixpanel -->
+<script type="text/javascript">
+	(function(d, c) {
+		var a, b, g, e;
+		a = d.createElement("script");
+		a.type = "text/javascript";
+		a.async = !0;
+		a.src = ("https:" === d.location.protocol ? "https:" : "http:")
+				+ '//api.mixpanel.com/site_media/js/api/mixpanel.2.js';
+		b = d.getElementsByTagName("script")[0];
+		b.parentNode.insertBefore(a, b);
+		c._i = [];
+		c.init = function(a, d, f) {
+			var b = c;
+			"undefined" !== typeof f ? b = c[f] = [] : f = "mixpanel";
+			g = "disable track track_links track_forms register register_once unregister identify name_tag set_config"
+					.split(" ");
+			for (e = 0; e < g.length; e++)
+				(function(a) {
+					b[a] = function() {
+						b.push([ a ].concat(Array.prototype.slice.call(
+								arguments, 0)))
+					}
+				})(g[e]);
+			c._i.push([ a, d, f ])
+		};
+		window.mixpanel = c
+	})(document, []);
+	mixpanel.init("f74d755fe2ee6d859a65142bd64b4ddf");
+</script>
+<!-- end Mixpanel -->
 
-    <!-- OPTIONAL: include this if you want history support -->
-    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
-    
-    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
-    <noscript>
-      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
-        Your web browser must have JavaScript enabled
-        in order for this application to display correctly.
-      </div>
-    </noscript>
-  
+<!--                                           -->
+<!-- This script loads your compiled module.   -->
+<!-- If you add any GWT meta tags, they must   -->
+<!-- be added before this line.                -->
+<!--                                           -->
+<script type="text/javascript" language="javascript"
+	src="uniqueid/uniqueid.nocache.js"></script>
+</head>
 
-  </body>
+<!--                                           -->
+<!-- The body can have arbitrary html, or      -->
+<!-- you can leave the body empty if you want  -->
+<!-- to create a completely dynamic UI.        -->
+<!--                                           -->
+<body>
+
+	<!-- OPTIONAL: include this if you want history support -->
+	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
+		style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+
+	<!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+	<noscript>
+		<div
+			style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			Your web browser must have JavaScript enabled in order for this
+			application to display correctly.</div>
+	</noscript>
+
+
+</body>
 </html>
