@@ -1,5 +1,6 @@
 package co.uniqueid.client.home;
 
+import co.uniqueid.client.Utilities.UseTracking;
 import co.uniqueid.client.entity.GetUniqueID;
 
 import com.google.gwt.core.client.GWT;
@@ -24,6 +25,9 @@ public class SearchField extends HorizontalPanel {
 		search.addKeyPressHandler(new KeyPressHandler() {
 			public void onKeyPress(KeyPressEvent event) {
 				if (event.getCharCode() == KeyCodes.KEY_ENTER) {
+
+					new UseTracking(this.getClass().getName() + "#"
+							+ search.getValue());
 
 					Location.assign(GWT.getHostPageBaseURL() + "?search="
 							+ search.getValue());

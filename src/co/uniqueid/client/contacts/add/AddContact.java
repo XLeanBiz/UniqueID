@@ -5,7 +5,6 @@ import co.uniqueid.client.UniqueIDServiceAsync;
 import co.uniqueid.client.entity.GetUniqueID;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class AddContact {
@@ -24,7 +23,6 @@ public class AddContact {
 			public void onSuccess(Void results) {
 
 				GetUniqueID.getFromID(uniqueID);
-
 			}
 		});
 

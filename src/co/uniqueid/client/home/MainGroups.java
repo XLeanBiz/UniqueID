@@ -1,5 +1,7 @@
 package co.uniqueid.client.home;
 
+import co.uniqueid.client.Utilities.UseTracking;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -34,7 +36,7 @@ public class MainGroups extends VerticalPanel {
 				"Alchemist Series: CustomerDevelopment & Metrics");
 		group2.addClickHandler(getClickHandler("AlchemistSeriesCustomerDevelopment_1332897337108"));
 		vpMainGroups.add(group2);
-		
+
 		Anchor group3 = new Anchor("Ansir Innovation Center");
 		group3.addClickHandler(getClickHandler("AnsirInnovationCenter_1333132928482"));
 		vpMainGroups.add(group3);
@@ -48,6 +50,8 @@ public class MainGroups extends VerticalPanel {
 
 			@Override
 			public void onClick(ClickEvent event) {
+
+				new UseTracking(this.getClass().getName() + "#" + groupUniqueID);
 
 				Location.assign(GWT.getHostPageBaseURL() + "?ID="
 						+ groupUniqueID);

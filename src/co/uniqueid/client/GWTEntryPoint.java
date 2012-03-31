@@ -3,6 +3,7 @@ package co.uniqueid.client;
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 import co.uniqueid.client.Utilities.ConvertJson;
+import co.uniqueid.client.Utilities.UseTracking;
 import co.uniqueid.client.home.Header;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -21,6 +22,8 @@ public class GWTEntryPoint implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		
+		new UseTracking(this.getClass().getName());
 
 		String uniqueIDJson = EncryptText
 				.decrypt(Cookies.getCookie("UniqueID"));
