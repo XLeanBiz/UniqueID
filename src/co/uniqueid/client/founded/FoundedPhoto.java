@@ -14,7 +14,7 @@ public class FoundedPhoto extends HTML {
 
 		String image = ConvertJson.getStringValue(unoUserJson, "image");
 
-		if (image != null) {
+		if (image != null && !"".equals(image)) {
 
 			this.setHTML("<a href='#'><img src='" + image
 					+ "' border=0  height='" + imageHeight + "px' title='"

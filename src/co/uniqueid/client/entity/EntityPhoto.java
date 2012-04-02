@@ -24,12 +24,13 @@ public class EntityPhoto extends VerticalPanel {
 			public void onClick(ClickEvent event) {
 
 				InitializeUniqueIDAppllication.vpMain.clear();
-				InitializeUniqueIDAppllication.vpMain.add(new EditEntity(unoUserJson));
+				InitializeUniqueIDAppllication.vpMain.add(new EditEntity(
+						unoUserJson));
 			}
 		};
 
 		String imageURL = ConvertJson.getStringValue(unoUserJson, "image");
-		if (imageURL != null) {
+		if (imageURL != null && !"".equals(imageURL)) {
 
 			Image image = new Image(imageURL);
 			image.setSize("100px", "100px");
