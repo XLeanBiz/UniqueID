@@ -2,13 +2,13 @@ package co.uniqueid.client.entity.page;
 
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.entity.GetUniqueID;
-import co.uniqueid.client.founded.FoundedPhoto;
 import co.uniqueid.client.links.AboutMeIcon;
 import co.uniqueid.client.links.BlogIcon;
 import co.uniqueid.client.links.EmailIcon;
 import co.uniqueid.client.links.FacebookIcon;
 import co.uniqueid.client.links.LinkedinIcon;
 import co.uniqueid.client.links.TwitterIcon;
+import co.uniqueid.client.maingroup.MainGroupPhoto;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -43,9 +43,16 @@ public class EntityPage extends VerticalPanel {
 
 			ListFounded.list(uniqueID);
 
+			String mainGroupName = ConvertJson.convertToString(unoUserJson
+					.get("MainGroupName"));
+
+			if (mainGroupName == null || "".equals(mainGroupName)) {
+				mainGroupName = "Founded";
+			}
+
 			gridFounded.clear();
-			gridFounded.setHTML(0, 0,
-					"<font size=3 color=red><b>Founded:</b></font>");
+			gridFounded.setHTML(0, 0, "<font size=3 color=red><b>"
+					+ mainGroupName + ":</b></font>");
 			gridFounded.getColumnFormatter().setWidth(1, "250px");
 			gridFounded.getColumnFormatter().setWidth(3, "30px");
 
@@ -145,7 +152,7 @@ public class EntityPage extends VerticalPanel {
 
 				JSONObject founded = (JSONObject) arrayFounded.get(i);
 
-				HTML foundedPhoto = new FoundedPhoto(founded, "20");
+				HTML foundedPhoto = new MainGroupPhoto(founded, "20");
 
 				hpFounded.add(foundedPhoto);
 			}

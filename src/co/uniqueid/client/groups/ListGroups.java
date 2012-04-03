@@ -1,23 +1,22 @@
-package co.uniqueid.client.founded;
+package co.uniqueid.client.groups;
 
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.HorizontalPanel;
 
-public class GetFoundedUniqueID {
+public class ListGroups {
 
-	public static void getFromID(final String foudedUniqueID,
-			final HorizontalPanel hpPhoto) {
+	public static void list(final String uniqueID) {
 
 		final UniqueIDServiceAsync uniqueIDService = GWT
 				.create(UniqueIDService.class);
 
-		uniqueIDService.getUniqueID(foudedUniqueID, new AsyncCallback<String>() {
+		uniqueIDService.listGroups(uniqueID, new AsyncCallback<String>() {
 
 			public void onFailure(final Throwable caught) {
 				System.out.println(caught);
@@ -25,11 +24,15 @@ public class GetFoundedUniqueID {
 
 			public void onSuccess(final String jsonResults) {
 
-				JSONObject obj = (JSONObject) JSONParser
+				JSONArray jsonArray = (JSONArray) JSONParser
 						.parseStrict(jsonResults);
 
-				hpPhoto.clear();
-				hpPhoto.add(new FoundedPhoto(obj, "60"));
+				for (int i = 0; i < jsonArray.size(); i++) {
+
+					JSONObject json = (JSONObject) jsonArray.get(i);
+
+					GroupsPanel.vpGroups.add(new GroupLink(json));
+				}
 			}
 		});
 	}

@@ -1,4 +1,4 @@
-package co.uniqueid.client.founded;
+package co.uniqueid.client.maingroup;
 
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.entity.GetUniqueID;
@@ -8,9 +8,9 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HTML;
 
-public class FoundedPhoto extends HTML {
+public class MainGroupPhoto extends HTML {
 
-	public FoundedPhoto(final JSONObject unoUserJson, String imageHeight) {
+	public MainGroupPhoto(final JSONObject unoUserJson, String imageHeight) {
 
 		String image = ConvertJson.getStringValue(unoUserJson, "image");
 

@@ -7,9 +7,9 @@ import co.uniqueid.client.Utilities.LoadingPanel;
 import co.uniqueid.client.contacts.ContactsPanel;
 import co.uniqueid.client.entity.EntityPanel;
 import co.uniqueid.client.entity.GetUniqueID;
-import co.uniqueid.client.founded.FoundedPanel;
 import co.uniqueid.client.home.Home;
 import co.uniqueid.client.home.SearchField;
+import co.uniqueid.client.maingroup.MainGroupPanel;
 
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -56,9 +56,11 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 		vpMain.clear();
 		vpMain.add(new EntityPanel(entityJsonObject));
 
-		vpMain.add(new FoundedPanel(entityJsonObject));
-
+		vpMain.add(new MainGroupPanel(entityJsonObject));
+		
 		vpMain.add(new ContactsPanel(entityJsonObject));
+
+		//vpMain.add(new GroupsPanel(entityJsonObject));
 	}
 
 	public static LoginWithFacebookButton InitializeFacebookLogin() {

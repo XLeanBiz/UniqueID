@@ -1,11 +1,11 @@
-package co.uniqueid.client.founded;
+package co.uniqueid.client.maingroup;
 
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 
-public class FoundedList extends HorizontalPanel {
+public class MainGroupList extends HorizontalPanel {
 
-	public FoundedList(final String foundedUniqueID) {
+	public MainGroupList(final String foundedUniqueID) {
 
 		this.setSpacing(10);
 		this.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
@@ -14,7 +14,7 @@ public class FoundedList extends HorizontalPanel {
 
 		this.add(hpPhoto);
 
-		GetFoundedUniqueID.getFromID(foundedUniqueID, hpPhoto);
+		GetMainGroupUniqueID.getFromID(foundedUniqueID, hpPhoto);
 
 	}
 

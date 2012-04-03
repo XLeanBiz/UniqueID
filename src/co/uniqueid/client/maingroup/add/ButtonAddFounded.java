@@ -1,4 +1,4 @@
-package co.uniqueid.client.founded.add;
+package co.uniqueid.client.maingroup.add;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

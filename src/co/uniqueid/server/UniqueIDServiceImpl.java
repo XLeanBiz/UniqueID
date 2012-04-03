@@ -19,10 +19,16 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 	private static String addFoundedUrl = "http://api.unoidme.appspot.com/AddFoundedService";
 
 	private static String addContactUrl = "http://api.unoidme.appspot.com/AddContactService";
-	
+
+	private static String addGroupUrl = "http://api.unoidme.appspot.com/AddGroupService";
+
 	private static String listFoundedUrl = "http://api.unoidme.appspot.com/ListFoundedService";
 
 	private static String listContactsUrl = "http://api.unoidme.appspot.com/ListContactsService";
+
+	private static String listGroupsUrl = "http://api.unoidme.appspot.com/ListGroupsService";
+
+	private static String renameGroupUrl = "http://api.unoidme.appspot.com/RenameMainGroupService";
 
 	public String getUniqueID(final String uniqueID) {
 
@@ -73,13 +79,21 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 
 		URLUtilities.fetchURLPost(addContactUrl, parameters);
 	}
-	
+
+	public void addGroup(final String uniqueID, final String groupName) {
+
+		String parameters = "UniqueID=" + uniqueID + "&Group=" + groupName;
+
+		URLUtilities.fetchURLPost(addGroupUrl, parameters);
+	}
+
 	public String listFounded(final String uniqueID) {
 
 		String parameters = "UniqueID=" + uniqueID;
 
-		final String jsonString =  URLUtilities.fetchURLPost(listFoundedUrl, parameters);
-		
+		final String jsonString = URLUtilities.fetchURLPost(listFoundedUrl,
+				parameters);
+
 		return jsonString;
 	}
 
@@ -87,9 +101,28 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 
 		String parameters = "UniqueID=" + uniqueID;
 
-		final String jsonString =  URLUtilities.fetchURLPost(listContactsUrl, parameters);
+		final String jsonString = URLUtilities.fetchURLPost(listContactsUrl,
+				parameters);
 
 		return jsonString;
 	}
 
+	public String listGroups(final String uniqueID) {
+
+		String parameters = "UniqueID=" + uniqueID;
+
+		final String jsonString = URLUtilities.fetchURLPost(listGroupsUrl,
+				parameters);
+
+		return jsonString;
+	}
+
+	public void renameMainGroup(final String uniqueID, final String groupName) {
+
+		String parameters = "UniqueID=" + uniqueID + "&MainGroupName="
+				+ groupName;
+
+		URLUtilities.fetchURLPost(renameGroupUrl, parameters);
+
+	}
 }

@@ -1,23 +1,22 @@
-package co.uniqueid.client.founded;
+package co.uniqueid.client.maingroup;
 
 import java.util.ArrayList;
 
 import co.uniqueid.client.Utilities.ConvertJson;
-import co.uniqueid.client.founded.add.IconAddFounded;
+import co.uniqueid.client.maingroup.add.IconAddFounded;
 
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class FoundedPanel extends VerticalPanel {
+public class MainGroupPanel extends VerticalPanel {
 
 	public static HorizontalPanel hpFounded = new HorizontalPanel();
 
-	public FoundedPanel(final JSONObject entityJsonObject) {
+	public MainGroupPanel(final JSONObject entityJsonObject) {
 
 		String uniqueID = ConvertJson.convertToString(entityJsonObject
 				.get("ID"));
@@ -30,8 +29,7 @@ public class FoundedPanel extends VerticalPanel {
 
 		hpLabel.setWidth("150px");
 
-		HTML htmlFounded = new HTML("<font size=3 color=black><b>Founded:</b></font>");
-		hpLabel.add(htmlFounded);
+		hpLabel.add(new MainGroupLabel(entityJsonObject));
 
 		hpLabel.add(new IconAddFounded(uniqueID));
 
@@ -51,7 +49,7 @@ public class FoundedPanel extends VerticalPanel {
 
 		for (String foundedUniqueID : foundedArray) {
 
-			hpFounded.add(new FoundedList(foundedUniqueID));
+			hpFounded.add(new MainGroupList(foundedUniqueID));
 		}
 	}
 

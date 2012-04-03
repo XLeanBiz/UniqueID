@@ -1,4 +1,4 @@
-package co.uniqueid.client.founded.add;
+package co.uniqueid.client.groups.add;
 
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
@@ -6,11 +6,11 @@ import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class AddFoundedPanel extends PopupPanel {
+public class AddGroupPanel extends PopupPanel {
 
-	public static TextBox uniqueIDFounded = new TextBox();
+	public static TextBox groupName = new TextBox();
 
-	public AddFoundedPanel(final String uniqueID) {
+	public AddGroupPanel(final String uniqueID) {
 
 		this.center();
 		this.setAutoHideEnabled(true);
@@ -24,16 +24,16 @@ public class AddFoundedPanel extends PopupPanel {
 
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		vp.add(new Label("Enter the Founded Name or Unique ID:"));
+		vp.add(new Label("Enter the Name of the Group:"));
 
 		vp.setSpacing(10);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		uniqueIDFounded.setValue(null);
-		uniqueIDFounded.setWidth("200px");
-		vp.add(uniqueIDFounded);
+		groupName.setValue(null);
+		groupName.setWidth("200px");
+		vp.add(groupName);
 
-		vp.add(new ButtonAddFounded(uniqueID, this));
+		vp.add(new ButtonAddGroup(uniqueID, this));
 
 		this.setWidget(vp);
 

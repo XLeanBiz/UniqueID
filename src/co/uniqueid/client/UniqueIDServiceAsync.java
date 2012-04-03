@@ -20,7 +20,15 @@ public interface UniqueIDServiceAsync {
 	void addContact(String uniqueID, String contactID,
 			AsyncCallback<Void> callback);
 
+	void addGroup(String uniqueID, String groupName,
+			AsyncCallback<Void> callback);
+
 	void listFounded(String uniqueID, AsyncCallback<String> callback);
 
 	void listContacts(String uniqueID, AsyncCallback<String> callback);
+
+	void listGroups(String uniqueID, AsyncCallback<String> callback);
+
+	void renameMainGroup(String uniqueID, String groupName,
+			AsyncCallback<Void> callback);
 }
