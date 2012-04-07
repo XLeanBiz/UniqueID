@@ -32,6 +32,8 @@ public class MainGroupPanel extends VerticalPanel {
 		hpLabel.add(new MainGroupLabel(entityJsonObject));
 
 		hpLabel.add(new IconAddFounded(uniqueID));
+		
+		hpLabel.add(new EditIcon(entityJsonObject));
 
 		this.add(hpLabel);
 

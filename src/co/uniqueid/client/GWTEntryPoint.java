@@ -22,7 +22,7 @@ public class GWTEntryPoint implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		
+
 		new UseTracking(this.getClass().getName());
 
 		String uniqueIDJson = EncryptText
@@ -44,8 +44,9 @@ public class GWTEntryPoint implements EntryPoint {
 				final String ID = Location.getParameter("ID");
 				final String search = Location.getParameter("search");
 				final String field = Location.getParameter("field");
+				final String group = Location.getParameter("group");
 
-				InitializeUniqueIDAppllication.init(ID, search, field);
+				InitializeUniqueIDAppllication.init(ID, group, search, field);
 			}
 
 		} else {

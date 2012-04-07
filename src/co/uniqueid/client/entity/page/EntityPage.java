@@ -25,9 +25,9 @@ public class EntityPage extends VerticalPanel {
 
 	public static FlexTable gridFounded = new FlexTable();
 
-	public static FlexTable gridContacts = new FlexTable();
+	public static VerticalPanel vpGroups = new VerticalPanel();
 
-	public EntityPage(final JSONObject unoUserJson) {
+	public EntityPage(final JSONObject unoUserJson, final String group) {
 
 		String uniqueID = ConvertJson.convertToString(unoUserJson.get("ID"));
 
@@ -59,18 +59,10 @@ public class EntityPage extends VerticalPanel {
 			add(gridFounded);
 		}
 
-		if (unoUserJson.get("Contacts") != null) {
+		vpGroups.clear();
+		this.add(vpGroups);
 
-			ListContacts.list(uniqueID);
-
-			gridContacts.clear();
-			gridContacts.setHTML(0, 0,
-					"<font size=3 color=red><b>Contacts:</b></font>");
-			gridContacts.getColumnFormatter().setWidth(1, "250px");
-			gridContacts.getColumnFormatter().setWidth(3, "30px");
-
-			add(gridContacts);
-		}
+		ListGroups.list(uniqueID, group);
 	}
 
 	public static HorizontalPanel getEntityName(final JSONObject unoUserJson,
@@ -112,7 +104,9 @@ public class EntityPage extends VerticalPanel {
 	public static HorizontalPanel getIconsPanel(final JSONObject unoUserJson) {
 
 		HorizontalPanel hpContacts = new HorizontalPanel();
-		hpContacts.setSpacing(10);
+
+		hpContacts.setSpacing(5);
+
 		hpContacts.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 
 		addIcon(FacebookIcon.getIcon(unoUserJson, "20", false), hpContacts);
@@ -141,7 +135,9 @@ public class EntityPage extends VerticalPanel {
 	public static HorizontalPanel getFoundedImages(final JSONObject contactJson) {
 
 		HorizontalPanel hpFounded = new HorizontalPanel();
-		hpFounded.setSpacing(10);
+
+		hpFounded.setSpacing(5);
+
 		hpFounded.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 
 		JSONArray arrayFounded = (JSONArray) contactJson.get("FoundedEntities");
@@ -152,7 +148,7 @@ public class EntityPage extends VerticalPanel {
 
 				JSONObject founded = (JSONObject) arrayFounded.get(i);
 
-				HTML foundedPhoto = new MainGroupPhoto(founded, "20");
+				HTML foundedPhoto = new MainGroupPhoto(founded, "30");
 
 				hpFounded.add(foundedPhoto);
 			}

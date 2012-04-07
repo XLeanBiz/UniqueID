@@ -1,4 +1,4 @@
-package co.uniqueid.client.groups.add;
+package co.uniqueid.client.groups.addGroup;
 
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;

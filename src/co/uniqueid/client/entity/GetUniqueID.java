@@ -24,23 +24,24 @@ public class GetUniqueID {
 
 	public static void get(final JSONObject uniqueIDJson) {
 
-		String unoUserID = ConvertJson.getStringValue(uniqueIDJson, "ID");
+		String uniqueID = ConvertJson.getStringValue(uniqueIDJson, "ID");
 
-		getFromID(unoUserID, false);
+		getFromID(uniqueID, null, false);
 
 	}
 
-	public static void getFromID(final String unoUserID) {
+	public static void getFromID(final String uniqueID) {
 
-		getFromID(unoUserID, false);
+		getFromID(uniqueID, null, false);
 	}
 
-	public static void getFromID(final String unoUserID, final boolean list) {
+	public static void getFromID(final String uniqueID, final String group,
+			final boolean list) {
 
 		final UniqueIDServiceAsync unoIDService = GWT
 				.create(UniqueIDService.class);
 
-		unoIDService.getUniqueID(unoUserID, new AsyncCallback<String>() {
+		unoIDService.getUniqueID(uniqueID, new AsyncCallback<String>() {
 
 			public void onFailure(final Throwable caught) {
 				System.out.println(caught);
@@ -57,7 +58,7 @@ public class GetUniqueID {
 
 						InitializeUniqueIDAppllication.vpMain.clear();
 						InitializeUniqueIDAppllication.vpMain
-								.add(new EntityPage(obj));
+								.add(new EntityPage(obj, group));
 					} else {
 
 						InitializeUniqueIDAppllication.InitializeEntity(obj);

@@ -22,6 +22,9 @@ public class EmailIcon {
 			icon = new HTML("<a href=\"mailto:" + email
 					+ "\"><img src='images/email.jpg' border=0 width='"
 					+ imageSize + "px' height='" + imageSize + "px' title='E-mail'></a>");
+			
+			icon.setWidth("25px");
+			
 		} else {
 
 			if (crossedImage) {

@@ -32,6 +32,9 @@ public class FacebookIcon {
 							+ "' target='_blank'><img src='images/facebookIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
 							+ "px' title='Facebook'></a>");
+			
+			icon.setWidth("25px");
+			
 		} else {
 
 			if (crossedImage) {

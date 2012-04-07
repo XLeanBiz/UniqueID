@@ -1,4 +1,4 @@
-package co.uniqueid.client.contacts;
+package co.uniqueid.client.groups.contacts;
 
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.entity.GetUniqueID;

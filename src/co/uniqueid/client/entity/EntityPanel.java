@@ -14,7 +14,7 @@ public class EntityPanel extends AbsolutePanel {
 
 	public EntityPanel(final JSONObject unoUserJson) {
 
-		this.setSize("700px", "380px");
+		this.setSize("650px", "340px");
 
 		EntityPhoto image = new EntityPhoto(unoUserJson);
 		add(image, 179, 143);

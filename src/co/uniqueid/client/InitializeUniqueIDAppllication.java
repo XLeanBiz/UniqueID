@@ -4,9 +4,9 @@ import co.uniqueid.authentication.client.login.facebook.FacebookLoginPanel;
 import co.uniqueid.authentication.client.login.facebook.FacebookLoginVerifyer;
 import co.uniqueid.authentication.client.login.facebook.LoginWithFacebookButton;
 import co.uniqueid.client.Utilities.LoadingPanel;
-import co.uniqueid.client.contacts.ContactsPanel;
 import co.uniqueid.client.entity.EntityPanel;
 import co.uniqueid.client.entity.GetUniqueID;
+import co.uniqueid.client.groups.GroupsPanel;
 import co.uniqueid.client.home.Home;
 import co.uniqueid.client.home.SearchField;
 import co.uniqueid.client.maingroup.MainGroupPanel;
@@ -25,11 +25,11 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 
 	public static void init(final String ID) {
 
-		init(ID, null, null);
+		init(ID, null, null, null);
 	}
 
-	public static void init(final String ID, final String search,
-			final String field) {
+	public static void init(final String ID, final String group,
+			final String search, final String field) {
 
 		RootPanel.get().add(vpMain);
 
@@ -38,7 +38,7 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 
 		if (ID != null) {
 
-			GetUniqueID.getFromID(ID, true);
+			GetUniqueID.getFromID(ID, group, true);
 
 		} else if (search != null) {
 
@@ -57,10 +57,10 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 		vpMain.add(new EntityPanel(entityJsonObject));
 
 		vpMain.add(new MainGroupPanel(entityJsonObject));
-		
-		vpMain.add(new ContactsPanel(entityJsonObject));
 
-		//vpMain.add(new GroupsPanel(entityJsonObject));
+		// vpMain.add(new ContactsPanel(entityJsonObject));
+
+		vpMain.add(new GroupsPanel(entityJsonObject));
 	}
 
 	public static LoginWithFacebookButton InitializeFacebookLogin() {

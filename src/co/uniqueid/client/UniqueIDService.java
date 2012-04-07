@@ -17,13 +17,13 @@ public interface UniqueIDService extends RemoteService {
 	
 	void addFounded(final String uniqueID, final String foundedID);
 	
-	void addContact(final String uniqueID, final String contactID);
+	void addContact(final String groupID, final String contactID);
 	
 	void addGroup(final String uniqueID, final String groupName);
 	
 	String listFounded(final String uniqueID);
 	
-	String listContacts(final String uniqueID);
+	String listContacts(final String groupID);
 	
 	String listGroups(final String uniqueID);
 	

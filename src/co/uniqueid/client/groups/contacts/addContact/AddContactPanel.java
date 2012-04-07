@@ -1,4 +1,4 @@
-package co.uniqueid.client.contacts.add;
+package co.uniqueid.client.groups.contacts.addContact;
 
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
@@ -10,9 +10,9 @@ public class AddContactPanel extends PopupPanel {
 
 	public static TextBox uniqueIDContact = new TextBox();
 
-	public AddContactPanel(final String uniqueID) {
+	public AddContactPanel(final String uniqueID, final String groupID) {
 
-		this.center();
+		//this.center();
 		this.setAutoHideEnabled(true);
 
 		VerticalPanel vp = new VerticalPanel();
@@ -33,7 +33,7 @@ public class AddContactPanel extends PopupPanel {
 		uniqueIDContact.setWidth("200px");
 		vp.add(uniqueIDContact);
 
-		vp.add(new ButtonAddContact(uniqueID, this));
+		vp.add(new ButtonAddContact(uniqueID,groupID, this));
 
 		this.setWidget(vp);
 

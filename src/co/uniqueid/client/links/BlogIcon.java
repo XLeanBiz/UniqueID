@@ -25,6 +25,9 @@ public class BlogIcon {
 							+ "' target='_blank'><img src='images/BlogIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
 							+ "px' title='Blog'></a>");
+			
+			icon.setWidth("25px");
+			
 		} else {
 
 			if (crossedImage) {

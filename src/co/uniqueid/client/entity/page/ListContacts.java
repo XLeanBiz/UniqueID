@@ -8,15 +8,16 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.FlexTable;
 
 public class ListContacts {
 
-	public static void list(final String uniqueID) {
+	public ListContacts(final String groupID, final FlexTable gridContacts) {
 
 		final UniqueIDServiceAsync uniqueIDService = GWT
 				.create(UniqueIDService.class);
 
-		uniqueIDService.listContacts(uniqueID, new AsyncCallback<String>() {
+		uniqueIDService.listContacts(groupID, new AsyncCallback<String>() {
 
 			public void onFailure(final Throwable caught) {
 				System.out.println(caught);
@@ -24,21 +25,21 @@ public class ListContacts {
 
 			public void onSuccess(final String jsonResults) {
 
-				JSONArray jsonArray = (JSONArray) JSONParser
+				JSONArray contacts = (JSONArray) JSONParser
 						.parseStrict(jsonResults);
 
 				int j = 1;
-				for (int i = (jsonArray.size() - 1); i >= 0; i--) {
+				for (int i = (contacts.size() - 1); i >= 0; i--) {
 
-					JSONObject contactJson = (JSONObject) jsonArray.get(i);
+					JSONObject contactJson = (JSONObject) contacts.get(i);
 
-					EntityPage.gridContacts.setWidget(j, 1,
+					gridContacts.setWidget(j, 1,
 							EntityPage.getEntityName(contactJson, "30"));
 
-					EntityPage.gridContacts.setWidget(j, 2,
+					gridContacts.setWidget(j, 2,
 							EntityPage.getIconsPanel(contactJson));
 
-					EntityPage.gridContacts.setWidget(j, 4,
+					gridContacts.setWidget(j, 4,
 							EntityPage.getFoundedImages(contactJson));
 
 					j++;

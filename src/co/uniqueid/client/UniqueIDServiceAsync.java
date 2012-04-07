@@ -17,7 +17,7 @@ public interface UniqueIDServiceAsync {
 	void addFounded(String uniqueID, String foundedID,
 			AsyncCallback<Void> callback);
 
-	void addContact(String uniqueID, String contactID,
+	void addContact(String groupID, String contactID,
 			AsyncCallback<Void> callback);
 
 	void addGroup(String uniqueID, String groupName,
@@ -25,7 +25,7 @@ public interface UniqueIDServiceAsync {
 
 	void listFounded(String uniqueID, AsyncCallback<String> callback);
 
-	void listContacts(String uniqueID, AsyncCallback<String> callback);
+	void listContacts(String groupID, AsyncCallback<String> callback);
 
 	void listGroups(String uniqueID, AsyncCallback<String> callback);
 

@@ -1,13 +1,14 @@
-package co.uniqueid.client.groups.add;
+package co.uniqueid.client.groups.contacts.addContact;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.PopupPanel;
 
-public class ButtonAddGroup extends Button {
+public class ButtonAddContact extends Button {
 
-	public ButtonAddGroup(final String uniqueID, final PopupPanel popup) {
+	public ButtonAddContact(final String uniqueID, final String groupID,
+			final PopupPanel popup) {
 
 		this.setText("Add");
 
@@ -16,11 +17,11 @@ public class ButtonAddGroup extends Button {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				String group = AddGroupPanel.groupName.getValue();
+				String contactID = AddContactPanel.uniqueIDContact.getValue();
 
-				if (group != null && !"".equals(group)) {
+				if (contactID != null && !"".equals(contactID)) {
 
-					AddGroup.save(uniqueID, group);
+					AddContact.save(uniqueID, groupID, contactID);
 				}
 
 				popup.hide();

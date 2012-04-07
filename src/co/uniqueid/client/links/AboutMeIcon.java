@@ -31,6 +31,8 @@ public class AboutMeIcon {
 							+ "' target='_blank'><img src='images/aboutme.png' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
 							+ "px' title='About Me'></a>");
+			
+			icon.setWidth("25px");
 
 		} else {
 

@@ -32,6 +32,9 @@ public class LinkedinIcon {
 							+ "' target='_blank'><img src='images/LinkedinIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
 							+ "px' title='LinkedIn'></a>");
+		
+			icon.setWidth("25px");
+			
 		} else {
 
 			if (crossedImage) {

@@ -31,6 +31,9 @@ public class TwitterIcon {
 							+ "' target='_blank'><img src='images/TwitterIcon.jpg' border=0 width='"
 							+ imageSize + "px' height='" + imageSize
 							+ "px' title='Twitter'></a>");
+			
+			icon.setWidth("25px");
+			
 		} else {
 
 			if (crossedImage) {
