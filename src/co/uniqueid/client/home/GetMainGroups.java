@@ -1,4 +1,4 @@
-package co.uniqueid.client.maingroup;
+package co.uniqueid.client.home;
 
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
@@ -7,17 +7,17 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class GetMainGroupUniqueID {
+public class GetMainGroups {
 
-	public static void getFromID(final String foudedUniqueID,
-			final HorizontalPanel hpPhoto) {
+	public static void getFromID(final String groupUniqueID,
+			final VerticalPanel hpPhoto) {
 
 		final UniqueIDServiceAsync uniqueIDService = GWT
 				.create(UniqueIDService.class);
 
-		uniqueIDService.getUniqueID(foudedUniqueID, new AsyncCallback<String>() {
+		uniqueIDService.getUniqueID(groupUniqueID, new AsyncCallback<String>() {
 
 			public void onFailure(final Throwable caught) {
 				System.out.println(caught);
@@ -29,7 +29,7 @@ public class GetMainGroupUniqueID {
 						.parseStrict(jsonResults);
 
 				hpPhoto.clear();
-				hpPhoto.add(new MainGroupPhoto(obj, "50"));
+				hpPhoto.add(new GroupImage(obj));
 			}
 		});
 	}

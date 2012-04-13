@@ -4,19 +4,19 @@ import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.Utilities.UseTracking;
-import co.uniqueid.client.home.Header;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window.Location;
-import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class GWTEntryPoint implements EntryPoint {
+
+	// private static Logger logger = Logger.getLogger("UniqueID");
 
 	/**
 	 * This is the entry point method.
@@ -27,6 +27,13 @@ public class GWTEntryPoint implements EntryPoint {
 
 		String uniqueIDJson = EncryptText
 				.decrypt(Cookies.getCookie("UniqueID"));
+
+		// logger.log(Level.INFO, "uniqueIDJson=" + uniqueIDJson);
+
+		String ID = Location.getParameter("ID");
+		final String search = Location.getParameter("search");
+		final String field = Location.getParameter("field");
+		final String group = Location.getParameter("group");
 
 		if (uniqueIDJson == null || uniqueIDJson.equals("null")) {
 
@@ -39,12 +46,8 @@ public class GWTEntryPoint implements EntryPoint {
 
 				InitializeUniqueIDAppllication
 						.VerifyFacebookLogin(authenticationCode);
-			} else {
 
-				final String ID = Location.getParameter("ID");
-				final String search = Location.getParameter("search");
-				final String field = Location.getParameter("field");
-				final String group = Location.getParameter("group");
+			} else {
 
 				InitializeUniqueIDAppllication.init(ID, group, search, field);
 			}
@@ -55,12 +58,14 @@ public class GWTEntryPoint implements EntryPoint {
 
 			UniqueIDGlobalVariables.uniqueID = obj;
 
-			RootPanel.get().add(new Header());
+			if (ID == null) {
 
-			String uniqueID = ConvertJson.convertToString(obj.get("ID"));
+				String uniqueIDMe = ConvertJson.convertToString(obj.get("ID"));
+				ID = uniqueIDMe;
+			}
 
-			InitializeUniqueIDAppllication.init(uniqueID);
+			InitializeUniqueIDAppllication.init(ID, group);
 		}
-
 	}
+
 }

@@ -1,4 +1,4 @@
-package co.uniqueid.client.home;
+package co.uniqueid.client.header;
 
 import com.google.gwt.user.client.ui.HTML;
 

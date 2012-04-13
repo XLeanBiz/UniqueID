@@ -14,12 +14,12 @@ import com.google.gwt.user.client.ui.Label;
 
 public class ListGroups {
 
-	public static void list(final String uniqueID, final String group) {
+	public static void list(final String entityUniqueID, final String group) {
 
 		final UniqueIDServiceAsync uniqueIDService = GWT
 				.create(UniqueIDService.class);
 
-		uniqueIDService.listGroups(uniqueID, new AsyncCallback<String>() {
+		uniqueIDService.listGroups(entityUniqueID, new AsyncCallback<String>() {
 
 			public void onFailure(final Throwable caught) {
 				System.out.println(caught);
@@ -44,12 +44,12 @@ public class ListGroups {
 
 						if (groupID.equals(group) || groupName.equals(group)) {
 
-							showGroup(groupID, groupName);
+							showGroup(entityUniqueID, groupID, groupName);
 						}
 
 					} else {
 
-						showGroup(groupID, groupName);
+						showGroup(entityUniqueID, groupID, groupName);
 					}
 
 				}
@@ -57,13 +57,13 @@ public class ListGroups {
 		});
 	}
 
-	private static void showGroup(final String groupID, final String groupName) {
+	private static void showGroup(final String entityUniqueID, final String groupID, final String groupName) {
 
 		Label space = new Label(" ");
 		space.setHeight("30px");
 		EntityPage.vpGroups.add(space);
 
-		EntityPage.vpGroups.add(new GroupName(groupName));
+		EntityPage.vpGroups.add(new GroupName(entityUniqueID, groupName));
 
 		FlexTable gridContacts = new FlexTable();
 		gridContacts.getColumnFormatter().setWidth(0, "50px");

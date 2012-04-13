@@ -12,23 +12,23 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 
 	private static final long serialVersionUID = -8355612980477933670L;
 
-	private static String searchUniqueIDUrl = "http://api.unoidme.appspot.com/SearchUniqueIDService";
+	private static String searchUniqueIDUrl = "https://api.unoidme.appspot.com/SearchUniqueIDService";
 
-	private static String getUniqueIDUrl = "http://api.unoidme.appspot.com/GetUniqueIDService";
+	private static String getUniqueIDUrl = "https://api.unoidme.appspot.com/GetUniqueIDService";
 
-	private static String addFoundedUrl = "http://api.unoidme.appspot.com/AddFoundedService";
+	private static String addFoundedUrl = "https://api.unoidme.appspot.com/AddFoundedService";
 
-	private static String addContactUrl = "http://api.unoidme.appspot.com/AddContactToGroupService";
+	private static String addContactUrl = "https://api.unoidme.appspot.com/AddContactToGroupService";
 
-	private static String addGroupUrl = "http://api.unoidme.appspot.com/AddGroupService";
+	private static String addGroupUrl = "https://api.unoidme.appspot.com/AddGroupService";
 
-	private static String listFoundedUrl = "http://api.unoidme.appspot.com/ListFoundedService";
+	private static String listFoundedUrl = "https://api.unoidme.appspot.com/ListFoundedService";
 
-	private static String listContactsUrl = "http://api.unoidme.appspot.com/ListContactsFromGroupService";
+	private static String listContactsUrl = "https://api.unoidme.appspot.com/ListContactsFromGroupService";
 
-	private static String listGroupsUrl = "http://api.unoidme.appspot.com/ListGroupsService";
+	private static String listGroupsUrl = "https://api.unoidme.appspot.com/ListGroupsService";
 
-	private static String renameGroupUrl = "http://api.unoidme.appspot.com/RenameMainGroupService";
+	private static String renameGroupUrl = "https://api.unoidme.appspot.com/RenameMainGroupService";
 
 	public String getUniqueID(final String uniqueID) {
 
