@@ -33,7 +33,7 @@ public class EntityPhoto extends VerticalPanel {
 		if (imageURL != null && !"".equals(imageURL)) {
 
 			Image image = new Image(imageURL);
-			image.setSize("100px", "100px");
+			image.setWidth("100px");
 			image.addClickHandler(click);
 			this.add(image);
 		}

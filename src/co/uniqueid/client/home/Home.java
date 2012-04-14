@@ -1,6 +1,7 @@
 package co.uniqueid.client.home;
 
 import co.uniqueid.client.entity.edit.AddButton;
+import co.uniqueid.client.home.events.MainEvents;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
@@ -22,6 +23,6 @@ public class Home extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		this.add(new MainGroups());
+		this.add(new MainEvents());
 	}
 }

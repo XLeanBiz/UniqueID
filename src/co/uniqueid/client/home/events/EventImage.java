@@ -1,4 +1,4 @@
-package co.uniqueid.client.home;
+package co.uniqueid.client.home.events;
 
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.Utilities.UseTracking;
@@ -12,29 +12,35 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class GroupImage extends VerticalPanel {
+public class EventImage extends VerticalPanel {
 
-	public GroupImage(final JSONObject unoUserJson) {
+	public EventImage(final JSONObject eventJson, final String groupName) {
 
 		this.setSpacing(5);
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		final String groupUniqueID = ConvertJson.getStringValue(unoUserJson,
-				"ID");
+		final String eventUniqueID = ConvertJson
+				.getStringValue(eventJson, "ID");
 
 		ClickHandler clickHandler = new ClickHandler() {
 
 			@Override
 			public void onClick(ClickEvent event) {
 
-				new UseTracking(this.getClass().getName() + "#" + groupUniqueID);
+				new UseTracking(this.getClass().getName() + "#" + eventUniqueID);
 
-				Location.assign(GWT.getHostPageBaseURL() + "?ID="
-						+ groupUniqueID);
+				String parameter = "?ID=" + eventUniqueID;
+
+				if (groupName != null) {
+
+					parameter += "&group=" + groupName;
+				}
+
+				Location.assign(GWT.getHostPageBaseURL() + parameter);
 			}
 		};
 
-		String imageURL = ConvertJson.getStringValue(unoUserJson, "image");
+		String imageURL = ConvertJson.getStringValue(eventJson, "image");
 		if (imageURL != null) {
 
 			HTML image = new HTML("<a href='#'><img src='" + imageURL
@@ -44,7 +50,7 @@ public class GroupImage extends VerticalPanel {
 		}
 
 		HTML name = new HTML("<font size=2 color=blue><a href='#'>"
-				+ ConvertJson.getStringValue(unoUserJson, "entityName")
+				+ ConvertJson.getStringValue(eventJson, "entityName")
 				+ "</a></font>");
 		name.setWidth("150px");
 		name.addClickHandler(clickHandler);

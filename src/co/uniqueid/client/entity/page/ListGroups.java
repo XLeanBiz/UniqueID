@@ -57,13 +57,15 @@ public class ListGroups {
 		});
 	}
 
-	private static void showGroup(final String entityUniqueID, final String groupID, final String groupName) {
+	private static void showGroup(final String entityUniqueID,
+			final String groupID, final String groupName) {
 
 		Label space = new Label(" ");
 		space.setHeight("30px");
 		EntityPage.vpGroups.add(space);
 
-		EntityPage.vpGroups.add(new GroupName(entityUniqueID, groupName));
+		EntityPage.vpGroups.add(new GroupName(entityUniqueID, groupID,
+				groupName));
 
 		FlexTable gridContacts = new FlexTable();
 		gridContacts.getColumnFormatter().setWidth(0, "50px");

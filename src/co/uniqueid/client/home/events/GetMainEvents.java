@@ -1,4 +1,4 @@
-package co.uniqueid.client.home;
+package co.uniqueid.client.home.events;
 
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
@@ -9,15 +9,15 @@ import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class GetMainGroups {
+public class GetMainEvents {
 
-	public static void getFromID(final String groupUniqueID,
-			final VerticalPanel hpPhoto) {
+	public static void getFromID(final String eventUniqueID,
+			final String groupName, final VerticalPanel hpPhoto) {
 
 		final UniqueIDServiceAsync uniqueIDService = GWT
 				.create(UniqueIDService.class);
 
-		uniqueIDService.getUniqueID(groupUniqueID, new AsyncCallback<String>() {
+		uniqueIDService.getUniqueID(eventUniqueID, new AsyncCallback<String>() {
 
 			public void onFailure(final Throwable caught) {
 				System.out.println(caught);
@@ -29,7 +29,7 @@ public class GetMainGroups {
 						.parseStrict(jsonResults);
 
 				hpPhoto.clear();
-				hpPhoto.add(new GroupImage(obj));
+				hpPhoto.add(new EventImage(obj, groupName));
 			}
 		});
 	}
