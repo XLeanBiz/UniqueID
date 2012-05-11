@@ -2,6 +2,7 @@ package co.uniqueid.client.entity.page;
 
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
+import co.uniqueid.client.entity.slideshow.Slideshow;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
@@ -33,14 +34,16 @@ public class ListContacts {
 
 					JSONObject contactJson = (JSONObject) contacts.get(i);
 
-					gridContacts.setWidget(j, 1,
-							EntityPage.getEntityName(contactJson, "30"));
+					Slideshow.addImageURL(contactJson);
+
+					gridContacts.setWidget(j, 1, EntityContactsPanel
+							.getEntityName(contactJson, "30"));
 
 					gridContacts.setWidget(j, 2,
-							EntityPage.getIconsPanel(contactJson));
+							EntityContactsPanel.getIconsPanel(contactJson));
 
 					gridContacts.setWidget(j, 4,
-							EntityPage.getFoundedImages(contactJson));
+							EntityContactsPanel.getFoundedImages(contactJson));
 
 					j++;
 				}

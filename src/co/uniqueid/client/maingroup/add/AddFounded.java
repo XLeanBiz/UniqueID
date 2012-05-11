@@ -5,7 +5,6 @@ import co.uniqueid.client.UniqueIDServiceAsync;
 import co.uniqueid.client.entity.GetUniqueID;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class AddFounded {

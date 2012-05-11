@@ -2,6 +2,7 @@ package co.uniqueid.client.entity.page;
 
 import co.uniqueid.client.UniqueIDService;
 import co.uniqueid.client.UniqueIDServiceAsync;
+import co.uniqueid.client.entity.slideshow.Slideshow;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
@@ -30,15 +31,18 @@ public class ListFounded {
 				for (int i = 0; i < jsonArray.size(); i++) {
 
 					JSONObject contactJson = (JSONObject) jsonArray.get(i);
+					
+					Slideshow.addImageURL(contactJson);
 
 					EntityPage.gridFounded.setWidget(i + 1, 1,
-							EntityPage.getEntityName(contactJson, "30"));
+							EntityContactsPanel
+									.getEntityName(contactJson, "30"));
 
 					EntityPage.gridFounded.setWidget(i + 1, 2,
-							EntityPage.getIconsPanel(contactJson));
+							EntityContactsPanel.getIconsPanel(contactJson));
 
 					EntityPage.gridFounded.setWidget(i + 1, 4,
-							EntityPage.getFoundedImages(contactJson));
+							EntityContactsPanel.getFoundedImages(contactJson));
 				}
 			}
 		});

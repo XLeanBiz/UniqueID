@@ -26,18 +26,21 @@ public class ContactPhoto extends HorizontalPanel {
 			}
 		};
 
+		String entityName = ConvertJson.getStringValue(unoUserJson,
+				"entityName");
+
 		String imageURL = ConvertJson.getStringValue(unoUserJson, "image");
 		if (imageURL != null) {
 
 			HTML image = new HTML("<a href='#'><img src='" + imageURL
-					+ "' border=0 width='35px' height='35px'></a>");
+					+ "' border=0 width='35px' height='35px' title='"
+					+ entityName + "'></a>");
 			image.addClickHandler(clickHandler);
 			this.add(image);
 		}
 
 		HTML name = new HTML("<font size=2 color=blue><a href='#'>"
-				+ ConvertJson.getStringValue(unoUserJson, "entityName")
-				+ "</a></font>");
+				+ entityName + "</a></font>");
 		name.addClickHandler(clickHandler);
 		this.add(name);
 	}

@@ -49,8 +49,14 @@ public class EventImage extends VerticalPanel {
 			this.add(image);
 		}
 
-		HTML name = new HTML("<font size=2 color=blue><a href='#'>"
-				+ ConvertJson.getStringValue(eventJson, "entityName")
+		String eventName = ConvertJson.getStringValue(eventJson, "entityName");
+
+		if (groupName != null) {
+			
+			eventName += "<br>" + groupName;
+		}
+
+		HTML name = new HTML("<font size=2 color=blue><a href='#'>" + eventName
 				+ "</a></font>");
 		name.setWidth("150px");
 		name.addClickHandler(clickHandler);
