@@ -32,7 +32,7 @@ public class ListFounded {
 
 					JSONObject contactJson = (JSONObject) jsonArray.get(i);
 					
-					Slideshow.addImageURL(contactJson);
+					Slideshow.addEntity(contactJson);
 
 					EntityPage.gridFounded.setWidget(i + 1, 1,
 							EntityContactsPanel

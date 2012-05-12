@@ -5,9 +5,9 @@ import co.uniqueid.client.entity.slideshow.Slideshow;
 
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class EntityPage extends VerticalPanel {
@@ -19,6 +19,8 @@ public class EntityPage extends VerticalPanel {
 	public static VerticalPanel vpGroups = new VerticalPanel();
 
 	public EntityPage(final JSONObject entityJson, final String group) {
+		
+		this.setWidth("100%");
 
 		String uniqueID = ConvertJson.convertToString(entityJson.get("ID"));
 
@@ -46,13 +48,11 @@ public class EntityPage extends VerticalPanel {
 		}
 
 		HorizontalPanel hp = new HorizontalPanel();
+		hp.setWidth("100%");
 		hp.add(vp);
-		
-		Label space = new Label(" ");
-		space.setWidth("100px");
-		hp.add(space);
 
 		hp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+		hp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 		vpSlideShow.clear();
 		hp.add(vpSlideShow);
 		this.add(hp);
@@ -69,11 +69,11 @@ public class EntityPage extends VerticalPanel {
 
 		vpSlideShow.clear();
 
-		Slideshow.imageURLs.clear();
+		Slideshow.entities.clear();
 
-		vpSlideShow.add(Slideshow.image);
+		vpSlideShow.add(Slideshow.panelImage);
 
-		Slideshow.addImageURL(entityJson);
+		Slideshow.addEntity(entityJson);
 
 		new Slideshow();
 	}

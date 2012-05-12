@@ -28,10 +28,9 @@ public class MainEvents extends VerticalPanel {
 		hp.add(vpEvent1);
 		GetMainEvents.getFromID("CustDevDay_1332642931554", null, vpEvent1);
 
-		VerticalPanel vpEvent4 = new VerticalPanel();
-		hp.add(vpEvent4);
-		GetMainEvents.getFromID("LeanStartupMachine_1333817778070", null,
-				vpEvent4);
+		VerticalPanel vpEventIOBio = new VerticalPanel();
+		hp.add(vpEventIOBio);
+		GetMainEvents.getFromID("IoBio_1336784483609", null, vpEventIOBio);
 
 		VerticalPanel vpEvent5 = new VerticalPanel();
 		hp.add(vpEvent5);
@@ -42,16 +41,21 @@ public class MainEvents extends VerticalPanel {
 		hp2.setSpacing(40);
 		vpMainEvent.add(hp2);
 
-		VerticalPanel vpEvent2 = new VerticalPanel();
-		hp2.add(vpEvent2);
-		GetMainEvents.getFromID(
-				"AlchemistSeriesCustomerDevelopment_1332897337108",
-				"March 2012", vpEvent2);
+		VerticalPanel vpEvent4 = new VerticalPanel();
+		hp2.add(vpEvent4);
+		GetMainEvents.getFromID("LeanStartupMachine_1333817778070", null,
+				vpEvent4);
 
 		VerticalPanel vpEvent3 = new VerticalPanel();
 		hp2.add(vpEvent3);
 		GetMainEvents.getFromID("AnsirInnovationCenter_1333132928482", null,
 				vpEvent3);
+
+		VerticalPanel vpEvent2 = new VerticalPanel();
+		hp2.add(vpEvent2);
+		GetMainEvents.getFromID(
+				"AlchemistSeriesCustomerDevelopment_1332897337108",
+				"March 2012", vpEvent2);
 
 		return vpMainEvent;
 	}

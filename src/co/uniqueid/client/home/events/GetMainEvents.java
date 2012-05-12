@@ -25,11 +25,14 @@ public class GetMainEvents {
 
 			public void onSuccess(final String jsonResults) {
 
-				JSONObject obj = (JSONObject) JSONParser
-						.parseStrict(jsonResults);
+				if (jsonResults != null) {
 
-				hpPhoto.clear();
-				hpPhoto.add(new EventImage(obj, groupName));
+					JSONObject obj = (JSONObject) JSONParser
+							.parseStrict(jsonResults);
+
+					hpPhoto.clear();
+					hpPhoto.add(new EventImage(obj, groupName));
+				}
 			}
 		});
 	}

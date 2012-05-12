@@ -12,6 +12,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public class Header extends VerticalPanel {
 
 	public Header() {
+		
+		this.setWidth("100%");
 
 		HorizontalPanel hp = new HorizontalPanel();
 		hp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);

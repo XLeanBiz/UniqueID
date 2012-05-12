@@ -29,6 +29,9 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 
 		RootPanel.get().add(vpRoot, 8, 3);
 
+		vpMain.setWidth("100%");
+		vpRoot.setWidth("100%");
+
 		vpRoot.add(new Header());
 
 		vpRoot.add(vpMain);
@@ -42,7 +45,7 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 
 	public static void init(final String ID, final String group,
 			final String search, final String field) {
-		
+
 		InitializeUniqueIDAppllication.initRootPanel();
 
 		vpMain.clear();
@@ -83,7 +86,7 @@ public class InitializeUniqueIDAppllication extends VerticalPanel {
 	public static void VerifyFacebookLogin(final String authenticationCode) {
 
 		FacebookLoginVerifyer.authenticate(FacebookAppID, authenticationCode,
-				Facebook_REDIRECT_URL, null);
+				Facebook_REDIRECT_URL, Facebook_REDIRECT_URL);
 	}
 
 }

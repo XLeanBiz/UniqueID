@@ -34,7 +34,7 @@ public class ListContacts {
 
 					JSONObject contactJson = (JSONObject) contacts.get(i);
 
-					Slideshow.addImageURL(contactJson);
+					Slideshow.addEntity(contactJson);
 
 					gridContacts.setWidget(j, 1, EntityContactsPanel
 							.getEntityName(contactJson, "30"));
