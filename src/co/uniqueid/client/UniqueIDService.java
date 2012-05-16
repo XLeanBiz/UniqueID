@@ -21,6 +21,8 @@ public interface UniqueIDService extends RemoteService {
 	
 	void addGroup(final String uniqueID, final String groupName);
 	
+	void addPermission(final String uniqueID, final String permissionName);
+	
 	String listFounded(final String uniqueID);
 	
 	String listContacts(final String groupID);

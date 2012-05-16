@@ -23,6 +23,9 @@ public interface UniqueIDServiceAsync {
 	void addGroup(String uniqueID, String groupName,
 			AsyncCallback<Void> callback);
 
+	void addPermission(String uniqueID, String permissionName,
+			AsyncCallback<Void> callback);
+
 	void listFounded(String uniqueID, AsyncCallback<String> callback);
 
 	void listContacts(String groupID, AsyncCallback<String> callback);

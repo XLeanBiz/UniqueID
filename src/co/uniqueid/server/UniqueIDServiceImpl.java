@@ -21,6 +21,8 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 	private static String addContactUrl = "https://api.unoidme.appspot.com/AddContactToGroupService";
 
 	private static String addGroupUrl = "https://api.unoidme.appspot.com/AddGroupService";
+	
+	private static String addPermissionUrl = "https://api.unoidme.appspot.com/AddPermissionService";
 
 	private static String listFoundedUrl = "https://api.unoidme.appspot.com/ListFoundedService";
 
@@ -85,6 +87,13 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 		String parameters = "UniqueID=" + uniqueID + "&Group=" + groupName;
 
 		URLUtilities.fetchURLPost(addGroupUrl, parameters);
+	}
+	
+	public void addPermission(final String uniqueID, final String permissionName) {
+
+		String parameters = "UniqueID=" + uniqueID + "&Permission=" + permissionName;
+
+		URLUtilities.fetchURLPost(addPermissionUrl, parameters);
 	}
 
 	public String listFounded(final String uniqueID) {

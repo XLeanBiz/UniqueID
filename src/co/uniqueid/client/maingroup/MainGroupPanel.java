@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import co.uniqueid.client.Utilities.ConvertJson;
 import co.uniqueid.client.maingroup.add.IconAddFounded;
+import co.uniqueid.client.maingroup.permissions.PermissionsLink;
 
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
@@ -21,7 +22,7 @@ public class MainGroupPanel extends VerticalPanel {
 		String uniqueID = ConvertJson.convertToString(entityJsonObject
 				.get("ID"));
 
-		this.setWidth("100%");
+		this.setWidth("600px");
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 
@@ -32,7 +33,7 @@ public class MainGroupPanel extends VerticalPanel {
 		hpLabel.add(new MainGroupLabel(entityJsonObject));
 
 		hpLabel.add(new IconAddFounded(uniqueID));
-		
+
 		hpLabel.add(new EditIcon(entityJsonObject));
 
 		this.add(hpLabel);
@@ -42,6 +43,8 @@ public class MainGroupPanel extends VerticalPanel {
 		this.add(hpFounded);
 
 		listFounded(entityJsonObject);
+
+		this.add(new PermissionsLink(entityJsonObject));
 
 	}
 

@@ -61,7 +61,7 @@ public class GetUniqueID {
 								.add(new EntityPage(obj, group));
 					} else {
 
-						InitializeUniqueIDAppllication.InitializeEntity(obj);
+						EntityPanel.InitializeEntity(obj);
 					}
 				}
 			}
@@ -92,8 +92,7 @@ public class GetUniqueID {
 
 							if (userJsonObject != null) {
 
-								InitializeUniqueIDAppllication
-										.InitializeEntity(userJsonObject);
+								EntityPanel.InitializeEntity(userJsonObject);
 
 							} else if (!"entityName".equals(fieldName)) {
 

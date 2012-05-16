@@ -1,11 +1,14 @@
 package co.uniqueid.client.entity;
 
+import co.uniqueid.client.InitializeUniqueIDAppllication;
+import co.uniqueid.client.groups.GroupsPanel;
 import co.uniqueid.client.links.AboutMeIcon;
 import co.uniqueid.client.links.BlogIcon;
 import co.uniqueid.client.links.EmailIcon;
 import co.uniqueid.client.links.FacebookIcon;
 import co.uniqueid.client.links.LinkedinIcon;
 import co.uniqueid.client.links.TwitterIcon;
+import co.uniqueid.client.maingroup.MainGroupPanel;
 
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.AbsolutePanel;
@@ -31,5 +34,18 @@ public class EntityPanel extends AbsolutePanel {
 
 		add(BlogIcon.getIcon(unoUserJson, "35", true), 310, 292);
 
+	}
+
+	public static void InitializeEntity(JSONObject entityJsonObject) {
+
+		InitializeUniqueIDAppllication.vpMain.clear();
+		InitializeUniqueIDAppllication.vpMain.add(new EntityPanel(
+				entityJsonObject));
+
+		InitializeUniqueIDAppllication.vpMain.add(new MainGroupPanel(
+				entityJsonObject));
+
+		InitializeUniqueIDAppllication.vpMain.add(new GroupsPanel(
+				entityJsonObject));
 	}
 }
