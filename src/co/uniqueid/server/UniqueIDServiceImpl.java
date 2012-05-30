@@ -21,7 +21,7 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 	private static String addContactUrl = "https://api.unoidme.appspot.com/AddContactToGroupService";
 
 	private static String addGroupUrl = "https://api.unoidme.appspot.com/AddGroupService";
-	
+
 	private static String addPermissionUrl = "https://api.unoidme.appspot.com/AddPermissionService";
 
 	private static String listFoundedUrl = "https://api.unoidme.appspot.com/ListFoundedService";
@@ -31,6 +31,10 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 	private static String listGroupsUrl = "https://api.unoidme.appspot.com/ListGroupsService";
 
 	private static String renameGroupUrl = "https://api.unoidme.appspot.com/RenameMainGroupService";
+
+	private static String deleteFoundedUrl = "https://api.unoidme.appspot.com/DeleteFoundedService";
+
+	private static String deleteContactUrl = "https://api.unoidme.appspot.com/DeleteContactFromGroupService";
 
 	public String getUniqueID(final String uniqueID) {
 
@@ -88,10 +92,11 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 
 		URLUtilities.fetchURLPost(addGroupUrl, parameters);
 	}
-	
+
 	public void addPermission(final String uniqueID, final String permissionName) {
 
-		String parameters = "UniqueID=" + uniqueID + "&Permission=" + permissionName;
+		String parameters = "UniqueID=" + uniqueID + "&Permission="
+				+ permissionName;
 
 		URLUtilities.fetchURLPost(addPermissionUrl, parameters);
 	}
@@ -132,6 +137,22 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 				+ groupName;
 
 		URLUtilities.fetchURLPost(renameGroupUrl, parameters);
+	}
 
+	public void deleteFounded(final String uniqueID,
+			final String foundedUniqueID) {
+
+		String parameters = "UniqueID=" + uniqueID + "&FoundedID="
+				+ foundedUniqueID;
+
+		URLUtilities.fetchURLPost(deleteFoundedUrl, parameters);
+	}
+
+	public void deleteContact(final String groupID, final String contactUniqueID) {
+
+		String parameters = "groupID=" + groupID + "&ContactID="
+				+ contactUniqueID;
+
+		URLUtilities.fetchURLPost(deleteContactUrl, parameters);
 	}
 }

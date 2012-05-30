@@ -2,6 +2,8 @@ package co.uniqueid.client.groups.contacts;
 
 import java.util.ArrayList;
 
+import co.uniqueid.client.entity.edit.DeleteContactIcon;
+
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
